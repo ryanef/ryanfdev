@@ -1,9 +1,9 @@
 # Site settings
 site: Ephesus
-title: Ephesus - Minimalist Jekyll Theme
+title: Ryan Farmer - Blog
 keywords: ephesus, blog
 description: >-
-  Ephesus - Minimalist Jekyll Theme
+  Ryan Farmer blog AWS Cloud
 lang: en-US
 timezone:  Europe/Istanbul
 repo: https://github.com/onepase/Ephesus # site repo [optional]
@@ -13,16 +13,13 @@ discus-identifier:  XXX
 
 # Author settings
 author:
-  name: Hakan Torun
-  bio: Computer Engineer @pardinus <br> Founder @zaqa <br> Open Source /#linux
+  name: RyanF.dev
+  bio: AWS Cloud Engineer
   picture: assets/images/profile.jpg 
-  github: onepase # github username
-  twitter: onepase # twitter username
-  facebook: onepase # facebook username
-  instagram: onepase # instagram username
-  youtube: https://www.youtube.com/channel/UCMmAto-wxBootXN91AzBiDg # youtube username
-  linkedin: hakantorun # linkedin username
-  email: your-email@email.com # email adress
+  github: ryanef # github username
+  twitter: iam_ryanf # twitter username
+  linkedin: ryan-farmer-652608214 # linkedin username
+  email: ryanef39@gmail.com # email adress
 
 
 # URL settings
