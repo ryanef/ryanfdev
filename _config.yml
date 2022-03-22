@@ -1,6 +1,6 @@
 # Site settings
 site: Ephesus
-title: Ryan Farmer - Blog
+title: RyanF.dev
 keywords: ephesus, blog
 description: >-
   RyanF.dev
@@ -13,7 +13,7 @@ discus-identifier:  XXX
 
 # Author settings
 author:
-  name: RyanF.dev
+  name: Ryan
   bio: AWS Cloud Engineer
   picture: assets/images/profile.jpg 
   github: ryanef # github username
