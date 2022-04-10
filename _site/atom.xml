@@ -4,7 +4,7 @@
  <title>RyanF.dev</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-04-10T23:18:22+03:00</updated>
+ <updated>2022-04-11T01:03:08+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Ryan</name>
@@ -17,79 +17,57 @@
    <link href="http://localhost:4000/how-i-passed-3-aws-associate-certifications/"/>
    <updated>2022-03-31T03:00:00+03:00</updated>
    <id>http://localhost:4000/sample-3</id>
-   <content type="html">&lt;p&gt;Lorem markdownum feriam: vir, vulnere cum postquam ocius, ecce. Exsangui totiens
-generis &lt;a href=&quot;http://www.fertur.io/aeacidis&quot;&gt;Iuppiter&lt;/a&gt; dederunt cerva refoventque,
-mea nulla secessit modo et. Hospes &lt;strong&gt;felices stetimusque&lt;/strong&gt; erat: &lt;strong&gt;Niobe
-nostro&lt;/strong&gt;, ne ruris &lt;em&gt;in deas extrema&lt;/em&gt;. Thebaides crimina, tu dixerat eripiet
-quiescere animae, pervenientia fuit furta sacrata illam, dabat. Quod munera
-monstra rimas ultra cunctos.&lt;/p&gt;
+   <content type="html">&lt;p&gt;In 2015 before I knew anything at all about cloud, I was looking for a cheap way to host a Wordpress blog when I found an article that mentioned using AWS free tier services to accomplish that. I followed a tutorial on spinning up an EC2 server and it worked, but like many other big ideas I had at the time, the site was quickly forgotten about and that was the end of my experience with AWS.&lt;/p&gt;
 
-&lt;p&gt;In 2014 before I even understood anything about cloud, I was looking for a cheap way to host a Wordpress blog when I found an article talking about using AWS free tier services to get dirt cheap hosting. I followed a tutorial on spinning up an EC2 server and it worked, but like many other big ideas I had at the time, the site was quickly forgotten about and that was the end of my experience with AWS until 2020. I was long overdue on a much needed career change at the time and after talking to a colleague who works in cloud, I began studying for the AWS Solutions Architect Associate certification around September 2020.&lt;/p&gt;
-
-&lt;p&gt;In the beginning, I studied every day and was definitely making progress but at some point I started slacking off and missing days with studying. Just like missing days in the gym, the days turn into weeks and when you finally get back at it, you have to take a few steps back from where you left off. A few months go by and while I learned a lot of new things, I definitely wasted a lot of time as well.&lt;/p&gt;
-
-&lt;p&gt;That’s when I decided the one thing that could keep me on track was committing to studying by putting money on the line and registering for the exam - and it worked. It gave me a deadline and goal date to help keep me on track. So if you feel like you’re studying and losing motivation along the way, maybe that’s something that could help.&lt;/p&gt;
+&lt;p&gt;In 2020, I was long overdue for a much needed career change and after doing some research I decided to take a shot at the AWS Solutions Architect exam. It was around September I began studying but stumbled a few times and would miss studying for weeks due to work or life in general. Eventually I decided the best thing for me to stay on track would be to put my money on the line and register for the exam. In early 2021 I booked my first exam, the SAA-C02, for April 2021. I passed the SAA-C02 and went on to pass the Developer and SysOps Administrator Associate exams within the next year.&lt;/p&gt;
 
 &lt;h2 id=&quot;resources-used&quot;&gt;Resources Used:&lt;/h2&gt;
 
-&lt;p&gt;I used video courses from Adrian Cantrill and Stephane Mareek. Adrian’s courses are more thorough with more hands-on labs experience. Stephane’s courses are shorter and straight to the point for passing the certification. Jon Bonso’s practice exams are the best and without them I wouldn’t have passed.
--&lt;strong&gt;&lt;a href=&quot;https://learn.cantrill.io/&quot;&gt;Adrian Cantrill&lt;/a&gt;&lt;/strong&gt;,
--&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/user/stephane-maarek/&quot;&gt;Stephane Mareek&lt;/a&gt;&lt;/strong&gt;,
--&lt;strong&gt;&lt;a href=&quot;https://portal.tutorialsdojo.com/product-category/aws-practice-exams/&quot;&gt;Jon Bonso&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I used primarily the 3 sources below for all 3 AWS Associate certifications. I am not affiliated with them in any way.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ephesus.jpg&quot; alt=&quot;Ephesus&quot; title=&quot;Ephesus&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://learn.cantrill.io/&quot;&gt;Adrian Cantrill - https://learn.cantrill.io/&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/user/stephane-maarek/&quot;&gt;Stephane Mareek - https://www.udemy.com/user/stephane-maarek/&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://portal.tutorialsdojo.com/product-category/aws-practice-exams/&quot;&gt;Jon Bonso Practice Exams- https://tutorialsojo.com&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Sacra erat cuncta. Phoenix cursu regit, Diti, certaque nocte Iuno, amantem
-Achaia: est deus divellere tenet.&lt;/p&gt;
+&lt;p&gt;You don’t need &lt;strong&gt;both&lt;/strong&gt; Adrian and Stephane’s courses to pass the certification. One or the other should suffice. I used Adrian’s course as a primary study tool and Stephane’s as a supplement. Adrian’s courses have detailed projects that you develop throughout the course that provide real world type experience. Adrian’s courses have  more hours of content whereas Stephane’s are shorter and straight to the point for simply passing the certification. If I had to recommend only one, it would be Adrian’s for the projects since you get to do cool stuff like convert a monolithic web app into running on serverless architecture.&lt;/p&gt;
+
+&lt;p&gt;You will need Jon Bonso’s practice certifications regardless of whose course you purchase. The review mode on these exams are a complete game changer since Jon has very detailed explanations on why wrong answers are wrong and that had a lot of value for me.&lt;/p&gt;
+
+&lt;h2 id=&quot;my-background&quot;&gt;My background&lt;/h2&gt;
+
+&lt;p&gt;I’ve been a life long learner when it comes to computers and have taught myself a good bit about programming, networking and server administration over the years but certainly not an expert in any of those areas. I did SEO and Wordpress development prior to 2014. Before switching into studying for cloud in 2020, I was studying to be a front-end web developer.&lt;/p&gt;
 
 &lt;h2 id=&quot;my-process&quot;&gt;My process&lt;/h2&gt;
 
-&lt;p&gt;I used both Adrian and Stephane’s video courses for the bulk of my preparation.&lt;/p&gt;
+&lt;p&gt;If I thought it would take me 12 weeks to finish a course, I would schedule the exam for 14 weeks away. 12 and 14 weeks are arbitrary numbers for an example, not a guideline you should go by. You shouldn’t speed through these courses and should really try to internalize the content. If you fall behind and can’t make your exam date, PearsonVUE does give the ability to postpone the exam but you must do it more than 24 hours before the exam. This is roughly how I scheduled studying for my 3 certs:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Watch Adrian’s course from beginning to end&lt;/li&gt;
-  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
-  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
-  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
-  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
-  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
+  &lt;li&gt;Watched Adrian’s course from beginning to end. I took notes in OneNote because it syncs between phone and computer.&lt;/li&gt;
+  &lt;li&gt;Two weeks away from the exam, started Jon Bonso’s practice exams. There are usually 6 exams.&lt;/li&gt;
+  &lt;li&gt;Do review mode on the first exam. I use hand-written notes in this part because I feel it helps better with memory. Review mode is important.&lt;/li&gt;
+  &lt;li&gt;After first practice exam and review, I would spend a day using Stephane Mareek’s course to review areas I felt weak. His videos are short and straight to the point about certification content. If you only have Adrian’s course, then use his videos on something like 1.25x or 1.5x speed for review.&lt;/li&gt;
+  &lt;li&gt;Continue to alternate practice exams and going back to course content.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
-tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
-potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
-ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
+&lt;p&gt;There are several reasons I start the practice exams roughly 2 weeks away from the exam. One reason is Jon Bonso usually has 6 practice exams available. The time required to take the practice exam then review it will take probably 4-5 hours. The other reason is the exams are very realistic and difficult which can be mentally taxing. If you don’t believe me, just search r/AWSCertifications for “is jon bonso’s practice exam harder than the real thing?”&lt;/p&gt;
 
-&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
-Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
-solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
-elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
-carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
-
-&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
-parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
-vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
-Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
+&lt;p&gt;The practice exams will be hard, but don’t let it discourage you if you fail a few. I nearly quit because of it. I failed the first 3 practice exams for Solutions Architect and nearly cancelled the exam. Thankfully someone(thank you) talked me into going through with it. It’s not that Jon’s tests are so much harder than the real thing, it’s just that they are a crucial part of the studying process if you haven’t taken certifications like this before. That’s an important thing to remember: &lt;strong&gt;the practice exams are a very important part of the learning process&lt;/strong&gt;. Use them as a learning tool and not a way to judge yourself and stress yourself out. That’s why I try to start taking them 2 weeks before the real exam and I alternate days something like this:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
-  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
-  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
-  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
-  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
-  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
+  &lt;li&gt;Monday: practice exam + review&lt;/li&gt;
+  &lt;li&gt;Tuesday: go over notes and review Adrian or Stephane’s courses.&lt;/li&gt;
+  &lt;li&gt;Wednesday: practice exam + review&lt;/li&gt;
+  &lt;li&gt;Thursday: go over notes and review Adrian or Stephane’s courses.&lt;/li&gt;
+  &lt;li&gt;Friday: practice exam + review&lt;/li&gt;
+  &lt;li&gt;Saturday: go over notes and review Adrian or Stephane’s courses.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
-tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
-potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
-ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
+&lt;p&gt;The practice exams are stressful but without them I wouldn’t have passed. Keep in mind this is all just my experience and I’m sure there are many who have successfully approached it another way.&lt;/p&gt;
 
-&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
-Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
-solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
-elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
-carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
+&lt;p&gt;Thanks for reading and good luck with your exam!&lt;/p&gt;
+
 </content>
  </entry>
  
