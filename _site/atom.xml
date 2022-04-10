@@ -4,7 +4,7 @@
  <title>RyanF.dev</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-04-11T01:29:29+03:00</updated>
+ <updated>2022-04-11T02:46:39+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Ryan</name>
@@ -13,10 +13,10 @@
 
  
  <entry>
-   <title>My first year in AWS: Passing the 3 Associate Certifications</title>
+   <title>My First Year in AWS: Passing the 3 Associate Certifications</title>
    <link href="http://localhost:4000/how-i-passed-3-aws-associate-certifications/"/>
-   <updated>2022-03-31T03:00:00+03:00</updated>
-   <id>http://localhost:4000/sample-3</id>
+   <updated>2022-04-10T03:00:00+03:00</updated>
+   <id>http://localhost:4000/My-first-year-in-AWS-Passing-the-3-Associate-Certifications</id>
    <content type="html">&lt;p&gt;In 2015 before I knew anything at all about cloud, I was looking for a cheap way to host a Wordpress blog when I found an article that mentioned using AWS free tier services to accomplish that. I followed a tutorial on spinning up an EC2 server and it worked, but like many other big ideas I had at the time, the site was quickly forgotten about and that was the end of my experience with AWS for the time being.&lt;/p&gt;
 
 &lt;p&gt;In 2020, I was long overdue for a much needed career change and after doing some research I decided to take a shot at the AWS Solutions Architect exam. It was around September I began studying but stumbled a few times and would miss studying for weeks due to work or life in general. Eventually I decided the best thing for me to stay on track would be to put my money on the line and register for the exam. In early 2021 I booked my first exam, the SAA-C02, for April 2021. I passed the SAA-C02 and went on to pass the Developer and SysOps Administrator Associate exams within the next year.&lt;/p&gt;
@@ -28,7 +28,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://learn.cantrill.io/&quot;&gt;Adrian Cantrill - https://learn.cantrill.io/&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/user/stephane-maarek/&quot;&gt;Stephane Mareek - https://www.udemy.com/user/stephane-maarek/&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://portal.tutorialsdojo.com/product-category/aws-practice-exams/&quot;&gt;Jon Bonso Practice Exams- https://tutorialsojo.com&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://portal.tutorialsdojo.com/product-category/aws-practice-exams/&quot;&gt;Jon Bonso Practice Exams- https://tutorialsdojo.com&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;You don’t need &lt;strong&gt;both&lt;/strong&gt; Adrian and Stephane’s courses to pass the certification. One or the other should suffice. I used Adrian’s course as a primary study tool and Stephane’s as a supplement. Adrian’s courses have detailed projects that you develop throughout the course that provide real world type experience. Adrian’s courses have  more hours of content whereas Stephane’s are shorter and straight to the point for simply passing the certification. If I had to recommend only one, it would be Adrian’s for the projects since you get to do cool stuff like convert a monolithic web app into running on serverless architecture.&lt;/p&gt;
@@ -45,20 +45,20 @@
 
 &lt;ul&gt;
   &lt;li&gt;Watched Adrian’s course from beginning to end. I took notes in OneNote because it syncs between phone and computer.&lt;/li&gt;
-  &lt;li&gt;Two weeks away from the exam, started Jon Bonso’s practice exams. There are usually 6 exams.&lt;/li&gt;
-  &lt;li&gt;Review the first exam. I use hand-written notes in this part because I feel it helps better with memory.&lt;/li&gt;
+  &lt;li&gt;Two weeks away from the exam, started Jon Bonso’s practice exams. There are usually 6 practice exams.&lt;/li&gt;
+  &lt;li&gt;Take and review the first exam. I use hand-written notes in this part because I feel it helps better with memory.&lt;/li&gt;
   &lt;li&gt;After first practice exam and review, I would spend the next day using Stephane Mareek’s course to review areas I felt weak. His videos are short and straight to the point about certification content. If you only have Adrian’s course, then use his videos on something like 1.25x or 1.5x speed for review.&lt;/li&gt;
   &lt;li&gt;Continue to alternate practice exam days and going back to course content.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;There are several reasons I start the practice exams roughly 2 weeks away from the exam. One reason is Jon Bonso usually has 6 practice exams available. The time required to take the practice exam then review it will be well over 4 hours. That’s a lot for one day.&lt;/p&gt;
+&lt;p&gt;There are several reasons I start the practice exams roughly 2 weeks away from the exam. One reason is Jon Bonso usually has 6 practice exams available so you want plenty of time to get through it. The time required to take the practice exam then review it will be 4-6 hours. That’s a lot to study for one day.&lt;/p&gt;
 
-&lt;p&gt;The other reason is the exams are very realistic and difficult which can be mentally taxing. If you don’t believe me, just search r/AWSCertifications for “is jon bonso’s practice exam harder than the real thing?” So for me, it just wasn’t a good idea to do these practice exams on back to back days. It felt better to put some time between the exams.&lt;/p&gt;
+&lt;p&gt;The other reason is the exams are very realistic and difficult which can be mentally taxing. A lot of people, including myself, let a failed practice exam get them in a negative mental state. If you don’t believe me, just search r/AWSCertifications for “is jon bonso’s practice exam harder than the real thing?” So for me, it just wasn’t a good idea to do these practice exams on back to back days.&lt;/p&gt;
 
-&lt;p&gt;The practice exams will be hard, but don’t let it discourage you if you fail a few. I nearly quit because of it. I failed the first few practice exams for Solutions Architect and nearly cancelled the exam. Thankfully someone(&lt;strong&gt;thank you&lt;/strong&gt;) talked me into going through with it. It’s not that Jon’s tests are so much harder than the real thing but they are a crucial part of the learning process. That’s an important thing to remember: &lt;strong&gt;the practice exams are a very important part of the learning process&lt;/strong&gt;. That’s why I try to start taking them 2 weeks before the real exam and I alternate days something like this:&lt;/p&gt;
+&lt;p&gt;The practice exams will be hard but don’t be discouraged if you fail a few of them. I failed a couple practice exams for SAA-C02 and nearly cancelled the exam. Thankfully someone(&lt;strong&gt;thank you&lt;/strong&gt;) talked me into going through with it and I passed on first attempt. It’s not that Jon’s tests are so much harder than the real thing but they are a crucial part of the learning process. The practice exam reviews are as important as the courses you watch. That’s why I try to start taking them 2 weeks before the real exam and I alternate days something like this:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Monday: practice exam + review the exam - read explanations for EVERYTHING&lt;/li&gt;
+  &lt;li&gt;Monday: practice exam + review the exam - &lt;strong&gt;read explanations for EVERYTHING&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Tuesday: go over notes and review Adrian or Stephane’s courses.&lt;/li&gt;
   &lt;li&gt;Wednesday: practice exam + review the exam&lt;/li&gt;
   &lt;li&gt;Thursday: go over notes and review Adrian or Stephane’s courses.&lt;/li&gt;
@@ -68,7 +68,7 @@
 
 &lt;p&gt;The practice exams are stressful but without them I wouldn’t have passed. Keep in mind this is all just my experience and I’m sure there are many who have successfully approached it another way.&lt;/p&gt;
 
-&lt;p&gt;Thanks for reading and good luck with your exam!&lt;/p&gt;
+&lt;p&gt;Thanks for reading and good luck if you have an upcoming exam!&lt;/p&gt;
 
 </content>
  </entry>
@@ -220,157 +220,6 @@ Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://ma
 solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
 elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
 carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Elit in massa parturient a class condimentum suspendisse.</title>
-   <link href="http://localhost:4000/elit-in-massa-parturient-a-class-condimentum-suspendisse/"/>
-   <updated>2021-09-11T03:00:00+03:00</updated>
-   <id>http://localhost:4000/elit-in-massa-parturient-a-class-condimentum-suspendisse</id>
-   <content type="html">&lt;p&gt;Lorem markdownum feriam: vir, vulnere cum postquam ocius, ecce. Exsangui totiens
-generis &lt;a href=&quot;http://www.fertur.io/aeacidis&quot;&gt;Iuppiter&lt;/a&gt; dederunt cerva refoventque,
-mea nulla secessit modo et. Hospes &lt;strong&gt;felices stetimusque&lt;/strong&gt; erat: &lt;strong&gt;Niobe
-nostro&lt;/strong&gt;, ne ruris &lt;em&gt;in deas extrema&lt;/em&gt;. Thebaides crimina, tu dixerat eripiet
-quiescere animae, pervenientia fuit furta sacrata illam, dabat. Quod munera
-monstra rimas ultra cunctos.&lt;/p&gt;
-
-&lt;p&gt;Incipit pars telis quod colebat tenet Iovis, Perseus et non Hectoris caesae temperat tetigere pulvis? Phaethonteos avus Asopida mansit proelia quamquam furoris: fuit Haemum functa non ferarum vincat &lt;em&gt;pretium te gloria&lt;/em&gt; ignibus.&lt;/p&gt;
-
-&lt;h2 id=&quot;potum-maius-urbem&quot;&gt;Potum maius urbem&lt;/h2&gt;
-
-&lt;p&gt;Polydori arvis. Quoniam faciesque dona plus Iasone &lt;strong&gt;credas&lt;/strong&gt;: et novem recipit
-praeceps desint: teneat naribus. &lt;a href=&quot;http://fierent.net/miserrimasecreta&quot;&gt;Athamanas
-Cupido&lt;/a&gt;, ureret gradere adapertaque nacta
-spargere pater et &lt;a href=&quot;http://nocte-conclamat.org/indiciique-micant&quot;&gt;fata&lt;/a&gt; ferrove
-&lt;strong&gt;et&lt;/strong&gt; loqui essem Tegeaea varios leviter. Et nymphis in exhibita villo!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/ephesus.jpg&quot; alt=&quot;Ephesus&quot; title=&quot;Ephesus&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sacra erat cuncta. Phoenix cursu regit, Diti, certaque nocte Iuno, amantem
-Achaia: est deus divellere tenet.&lt;/p&gt;
-
-&lt;h2 id=&quot;clara-poterant-caret&quot;&gt;Clara poterant caret&lt;/h2&gt;
-
-&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
-parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
-vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
-Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
-  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
-  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
-  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
-  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
-  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
-tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
-potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
-ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
-
-&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
-Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
-solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
-elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
-carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
-
-&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
-parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
-vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
-Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
-  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
-  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
-  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
-  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
-  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
-tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
-potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
-ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
-
-&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
-Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
-solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
-elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
-carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Email Address Format, PHP filter_var Function And RFC 5321</title>
-   <link href="http://localhost:4000/email-address-format-php-filter-var-function-and-rfc-5321/"/>
-   <updated>2021-08-27T03:00:00+03:00</updated>
-   <id>http://localhost:4000/email-address-format</id>
-   <content type="html">&lt;h1 id=&quot;proles-non-tamen-habet&quot;&gt;Proles non tamen habet&lt;/h1&gt;
-
-&lt;h2 id=&quot;epops-adfatur-admittitur-laedere&quot;&gt;Epops adfatur admittitur laedere&lt;/h2&gt;
-
-&lt;p&gt;Lorem markdownum Leucothoeque errore maturus bracchia, nova atria, non more
-hostem umbra metuque, turribus. Nostra prato &lt;strong&gt;vitae aevo Cycneia&lt;/strong&gt; undis; fuit
-ille, inque. Te nunc. Iamque ferens haut nec fruticosa quae summoque officio
-trunco faces. Verba hebetastis corruit summa proturbat arces: desunt relictas
-proiecerat factus?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Est erant labores submersum qui adspicias nectare&lt;/li&gt;
-  &lt;li&gt;Ratis insistere cucurri&lt;/li&gt;
-  &lt;li&gt;Deerit arces&lt;/li&gt;
-  &lt;li&gt;Mei mole iunctura recessit mater auctor silvasque&lt;/li&gt;
-  &lt;li&gt;Urbe effusus sunt praepetis&lt;/li&gt;
-  &lt;li&gt;Possunt narratur quoque qualia praecipue deos&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Silvae saxa colunt de saepe iubentem remotus sacra, tot acumina sorores, mihi!
-&lt;a href=&quot;#quo&quot;&gt;Oravit tolli&lt;/a&gt; mergit; &lt;strong&gt;inobservatus nitor niveis&lt;/strong&gt;?&lt;/p&gt;
-
-&lt;h2 id=&quot;quinquennem-mihi-obliquaque-terrae-ab-miserere-cuspide&quot;&gt;Quinquennem mihi obliquaque terrae ab miserere cuspide&lt;/h2&gt;
-
-&lt;p&gt;Neque calidumque inguina sui aestuat gemino abstulit tendens tamen: versant
-dicentem tormenta tertius subigebant foedere. Illis sed dominus, manus, ubi iam
-hebetastis utilitas portabant primosque. O saevum &lt;em&gt;avi&lt;/em&gt; potest &lt;a href=&quot;#pretium&quot;&gt;sed
-nabat&lt;/a&gt; currere confodit &lt;em&gt;tollite his separat&lt;/em&gt;. Tenebrisque manus;
-opifex servitque iuvenem tamen?&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Fit figis praeterita viriles arbor&lt;/li&gt;
-  &lt;li&gt;Et petebar hi manus&lt;/li&gt;
-  &lt;li&gt;Humum maiorque caecisque conticuit erat naris coniecto&lt;/li&gt;
-  &lt;li&gt;Perque vagas et precanti potens inopes&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Fiant ait dixit pede Pindo laborum. Tamen et ex sacrum iacentes; nais aequor,
-amor pavent est! A cladis a &lt;strong&gt;tu ne lecti&lt;/strong&gt;, nec, iam secuti tibi. Frugiferas
-cacumen &lt;strong&gt;his&lt;/strong&gt;: tinxit lunam felix laborem cavernas inter.&lt;/p&gt;
-
-&lt;p&gt;Quae ima ictus: homine suo fores rediit caelo, &lt;a href=&quot;#exigit&quot;&gt;ad Iuno&lt;/a&gt;, diu inde
-nostro. Frondes caerula de iaculum pro nobilis unda. Ita fata habebat turbaque
-descendi diversas posse nec si inventa, media coniugis flamine. Misit et meus
-Cocalus!&lt;/p&gt;
-
-&lt;p&gt;Fiant ait dixit pede Pindo laborum. Tamen et ex sacrum iacentes; nais aequor,
-amor pavent est! A cladis a &lt;strong&gt;tu ne lecti&lt;/strong&gt;, nec, iam secuti tibi. Frugiferas
-cacumen &lt;strong&gt;his&lt;/strong&gt;: tinxit lunam felix laborem cavernas inter.&lt;/p&gt;
-
-&lt;p&gt;Quae ima ictus: homine suo fores rediit caelo, &lt;a href=&quot;#exigit&quot;&gt;ad Iuno&lt;/a&gt;, diu inde
-nostro. Frondes caerula de iaculum pro nobilis unda. Ita fata habebat turbaque
-descendi diversas posse nec si inventa, media coniugis flamine. Misit et meus
-Cocalus!
-Fiant ait dixit pede Pindo laborum. Tamen et ex sacrum iacentes; nais aequor,
-amor pavent est! A cladis a &lt;strong&gt;tu ne lecti&lt;/strong&gt;, nec, iam secuti tibi. Frugiferas
-cacumen &lt;strong&gt;his&lt;/strong&gt;: tinxit lunam felix laborem cavernas inter.&lt;/p&gt;
-
-&lt;p&gt;Quae ima ictus: homine suo fores rediit caelo, &lt;a href=&quot;#exigit&quot;&gt;ad Iuno&lt;/a&gt;, diu inde
-nostro. Frondes caerula de iaculum pro nobilis unda. Ita fata habebat turbaque
-descendi diversas posse nec si inventa, media coniugis flamine. Misit et meus
-Cocalus!&lt;/p&gt;
 </content>
  </entry>
  

@@ -1,6 +1,6 @@
 ---
-title: "My first year in AWS: Passing the 3 Associate Certifications"
-date: 04-10-2022 T00:00:00+00:00
+title: "My First Year in AWS: Passing the 3 Associate Certifications"
+date: 2022-04-10T00:00:00+00:00
 author: Ryan
 layout: post
 permalink: /how-i-passed-3-aws-associate-certifications/

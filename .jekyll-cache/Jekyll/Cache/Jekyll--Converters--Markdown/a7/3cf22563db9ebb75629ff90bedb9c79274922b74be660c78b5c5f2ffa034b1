@@ -1,4 +1,4 @@
-I"�<p>In 2015 before I knew anything at all about cloud, I was looking for a cheap way to host a Wordpress blog when I found an article that mentioned using AWS free tier services to accomplish that. I followed a tutorial on spinning up an EC2 server and it worked, but like many other big ideas I had at the time, the site was quickly forgotten about and that was the end of my experience with AWS for the time being.</p>
+I"�<p>In 2015 before I knew anything at all about cloud, I was looking for a cheap way to host a Wordpress blog when I found an article that mentioned using AWS free tier services to accomplish that. I followed a tutorial on spinning up an EC2 server and it worked, but like many other big ideas I had at the time, the site was quickly forgotten about and that was the end of my experience with AWS for the time being.</p>
 
 <p>In 2020, I was long overdue for a much needed career change and after doing some research I decided to take a shot at the AWS Solutions Architect exam. It was around September I began studying but stumbled a few times and would miss studying for weeks due to work or life in general. Eventually I decided the best thing for me to stay on track would be to put my money on the line and register for the exam. In early 2021 I booked my first exam, the SAA-C02, for April 2021. I passed the SAA-C02 and went on to pass the Developer and SysOps Administrator Associate exams within the next year.</p>
 
@@ -9,7 +9,7 @@
 <ul>
   <li><strong><a href="https://learn.cantrill.io/">Adrian Cantrill - https://learn.cantrill.io/</a></strong></li>
   <li><strong><a href="https://www.udemy.com/user/stephane-maarek/">Stephane Mareek - https://www.udemy.com/user/stephane-maarek/</a></strong></li>
-  <li><strong><a href="https://portal.tutorialsdojo.com/product-category/aws-practice-exams/">Jon Bonso Practice Exams- https://tutorialsojo.com</a></strong></li>
+  <li><strong><a href="https://portal.tutorialsdojo.com/product-category/aws-practice-exams/">Jon Bonso Practice Exams- https://tutorialsdojo.com</a></strong></li>
 </ul>
 
 <p>You don’t need <strong>both</strong> Adrian and Stephane’s courses to pass the certification. One or the other should suffice. I used Adrian’s course as a primary study tool and Stephane’s as a supplement. Adrian’s courses have detailed projects that you develop throughout the course that provide real world type experience. Adrian’s courses have  more hours of content whereas Stephane’s are shorter and straight to the point for simply passing the certification. If I had to recommend only one, it would be Adrian’s for the projects since you get to do cool stuff like convert a monolithic web app into running on serverless architecture.</p>
@@ -26,20 +26,20 @@
 
 <ul>
   <li>Watched Adrian’s course from beginning to end. I took notes in OneNote because it syncs between phone and computer.</li>
-  <li>Two weeks away from the exam, started Jon Bonso’s practice exams. There are usually 6 exams.</li>
-  <li>Review the first exam. I use hand-written notes in this part because I feel it helps better with memory.</li>
+  <li>Two weeks away from the exam, started Jon Bonso’s practice exams. There are usually 6 practice exams.</li>
+  <li>Take and review the first exam. I use hand-written notes in this part because I feel it helps better with memory.</li>
   <li>After first practice exam and review, I would spend the next day using Stephane Mareek’s course to review areas I felt weak. His videos are short and straight to the point about certification content. If you only have Adrian’s course, then use his videos on something like 1.25x or 1.5x speed for review.</li>
   <li>Continue to alternate practice exam days and going back to course content.</li>
 </ul>
 
-<p>There are several reasons I start the practice exams roughly 2 weeks away from the exam. One reason is Jon Bonso usually has 6 practice exams available. The time required to take the practice exam then review it will be well over 4 hours. That’s a lot for one day.</p>
+<p>There are several reasons I start the practice exams roughly 2 weeks away from the exam. One reason is Jon Bonso usually has 6 practice exams available so you want plenty of time to get through it. The time required to take the practice exam then review it will be 4-6 hours. That’s a lot to study for one day.</p>
 
-<p>The other reason is the exams are very realistic and difficult which can be mentally taxing. If you don’t believe me, just search r/AWSCertifications for “is jon bonso’s practice exam harder than the real thing?” So for me, it just wasn’t a good idea to do these practice exams on back to back days. It felt better to put some time between the exams.</p>
+<p>The other reason is the exams are very realistic and difficult which can be mentally taxing. A lot of people, including myself, let a failed practice exam get them in a negative mental state. If you don’t believe me, just search r/AWSCertifications for “is jon bonso’s practice exam harder than the real thing?” So for me, it just wasn’t a good idea to do these practice exams on back to back days.</p>
 
-<p>The practice exams will be hard, but don’t let it discourage you if you fail a few. I nearly quit because of it. I failed the first few practice exams for Solutions Architect and nearly cancelled the exam. Thankfully someone(<strong>thank you</strong>) talked me into going through with it. It’s not that Jon’s tests are so much harder than the real thing but they are a crucial part of the learning process. That’s an important thing to remember: <strong>the practice exams are a very important part of the learning process</strong>. That’s why I try to start taking them 2 weeks before the real exam and I alternate days something like this:</p>
+<p>The practice exams will be hard but don’t be discouraged if you fail a few of them. I failed a couple practice exams for SAA-C02 and nearly cancelled the exam. Thankfully someone(<strong>thank you</strong>) talked me into going through with it and I passed on first attempt. It’s not that Jon’s tests are so much harder than the real thing but they are a crucial part of the learning process. The practice exam reviews are as important as the courses you watch. That’s why I try to start taking them 2 weeks before the real exam and I alternate days something like this:</p>
 
 <ul>
-  <li>Monday: practice exam + review the exam - read explanations for EVERYTHING</li>
+  <li>Monday: practice exam + review the exam - <strong>read explanations for EVERYTHING</strong></li>
   <li>Tuesday: go over notes and review Adrian or Stephane’s courses.</li>
   <li>Wednesday: practice exam + review the exam</li>
   <li>Thursday: go over notes and review Adrian or Stephane’s courses.</li>
@@ -49,6 +49,6 @@
 
 <p>The practice exams are stressful but without them I wouldn’t have passed. Keep in mind this is all just my experience and I’m sure there are many who have successfully approached it another way.</p>
 
-<p>Thanks for reading and good luck with your exam!</p>
+<p>Thanks for reading and good luck if you have an upcoming exam!</p>
 
 :ET
