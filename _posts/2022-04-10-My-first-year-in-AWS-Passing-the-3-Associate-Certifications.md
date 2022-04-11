@@ -31,7 +31,7 @@ I've been a life long learner when it comes to computers and have taught myself 
 
 ## My process
 
-If I thought it would take me 12 weeks to finish a course, I would schedule the exam for 14 weeks away. 12 and 14 weeks are arbitrary numbers just to make an example, not a guideline you should go by. You shouldn't speed through these courses and should really try to internalize the content. If you fall behind and can't make your exam date, PearsonVUE does give the ability to change your exam date but you must give them more than 24 hour notice. This is about how I scheduled studying for my 3 certs:
+If I thought it would take me 12 weeks to finish a course, I would schedule the exam for 14 weeks away. 12 and 14 weeks are arbitrary numbers just to make an example, not a guideline you should go by. You shouldn't speed through these courses and should really try to internalize the content. I try to keep about 2 weeks space between finishing a course and the real exam so I have time for doing 6 practice exams. If you fall behind and can't make your exam date, PearsonVUE does give the ability to change your exam date but you must give them more than 24 hour notice. This is about how I scheduled studying for my 3 certs:
 
 - Watched Adrian's course from beginning to end. I took notes in OneNote because it syncs between phone and computer.
 - Two weeks away from the exam, started Jon Bonso's practice exams. There are usually 6 practice exams.
