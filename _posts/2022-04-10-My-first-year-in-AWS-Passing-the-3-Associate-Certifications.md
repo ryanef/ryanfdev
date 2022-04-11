@@ -8,9 +8,9 @@ categories: Genel
 tags: [AWS, certifications]
 ---
 
-In 2015 before I knew anything at all about cloud, I was looking for a cheap way to host a Wordpress blog when I found an article that mentioned using AWS free tier services to accomplish that. I followed a tutorial on spinning up an EC2 server and it worked, but like many other big ideas I had at the time, the site was quickly forgotten about and that was the end of my experience with AWS for the time being. 
+In 2015 before I knew anything at all about cloud, I was looking for a cheap way to host a Wordpress blog when I found an article that mentioned using AWS free tier services to accomplish that. I followed a tutorial on spinning up an EC2 server and Route53 to get Wordpress running in the cloud. It worked, but like many other big ideas I had at the time, the site was quickly forgotten about and for the time being that was the end of my experience with AWS.
 
-In 2020, I was long overdue for a much needed career change and after doing some research I decided to take a shot at the AWS Solutions Architect exam. It was around September I began studying but stumbled a few times and would miss studying for weeks due to work or life in general. Eventually I decided the best thing for me to stay on track would be to put my money on the line and register for the exam. In early 2021 I booked my first exam, the SAA-C02, for April 2021. I passed the SAA-C02 and went on to pass the Developer and SysOps Administrator Associate exams within the next year.
+In 2020, I was long overdue for a much needed career change and after doing some research I decided to take a shot at the AWS Solutions Architect exam. It was around September I began studying but stumbled a few times and wouldn't study for a few weeks due to work or one of life's random problems. Eventually I decided the best thing for me to stay on track would be to put my money on the line and register for the exam. In early 2021 I booked my first exam, the SAA-C02, for April 2021. I passed the SAA-C02 and went on to pass the Developer and SysOps Administrator Associate exams within the next year.
 
 
 ## Resources Used:
