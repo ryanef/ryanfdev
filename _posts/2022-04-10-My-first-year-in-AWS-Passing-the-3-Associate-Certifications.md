@@ -15,7 +15,7 @@ In 2020, I was long overdue for a much needed career change and after doing some
 
 ## Resources Used:
 
-I used mostly the 3 sources below for all 3 AWS Associate certifications. Of course the official AWS documentation is a gold mine but all 3 resources below will provide you plenty of links to the relevant docs for the certification you're taking.
+I used mostly the three sources below for all 3 AWS Associate certifications. Of course the official AWS documentation is a gold mine but all 3 resources below will provide you plenty of links to the relevant docs for the certification you're taking.
 
 - **[Adrian Cantrill - https://learn.cantrill.io/](https://learn.cantrill.io/)**
 - **[Stephane Mareek - https://www.udemy.com/user/stephane-maarek/](https://www.udemy.com/user/stephane-maarek/)**
