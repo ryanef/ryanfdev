@@ -31,7 +31,7 @@ jobs:
           aws-region: us-east-1
       
       - name: deploy to s3
-        run: aws s3 sync ./dist/ s3://${{ secrets.S3_BUCKET }}/
+        run: aws cp --recursive ./dist/ s3://${{ secrets.S3_BUCKET }}/
      
       - name: invalidate cloudfront cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CF_DISTRO_ID }} --paths "/*" "/"
