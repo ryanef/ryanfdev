@@ -16,7 +16,7 @@ AWS Cognito really does a lot so it can be overwhelming but this series  will st
 
 **Authorization:** Manage your access to services. You've proven who you say you are, now you have access to specific resources.
 
-### The Two Faces of AWS Cognito:
+### The Two Faces of AWS Cognito
 
 Cognito is one service but when you open it in the AWS console you'll be presented with two options:
 
@@ -46,9 +46,9 @@ There are many ways to implement Cognito in an application ranging from official
 
 #### Amplify
 
-Some may not want to use Amplify at first glance but it's worth noting you don't have to fully opt-in to the Amplify ecosystem and use things like Amplify UI libraries or Amplify CLI. You can install Amplify Auth(https://www.npmjs.com/package/@aws-amplify/auth) on its own. It's straight forward to setup Amplify for your existing resources for either client side or server side authentication. https://docs.amplify.aws/javascript/build-a-backend/auth/enable-sign-up/ 
+Some may not want to use Amplify at first glance but it's worth noting you don't have to fully opt-in to the Amplify ecosystem and use things like Amplify UI libraries or Amplify CLI. You can install [Amplify Auth](https://www.npmjs.com/package/@aws-amplify/auth) on its own. It's straight forward to setup Amplify for your existing resources for either client side or server side authentication. The [AWS Docs](https://docs.amplify.aws/javascript/build-a-backend/auth/enable-sign-up/ ) have great examples
 
-https://www.npmjs.com/package/amazon-cognito-identity-js is what Amplify uses under the hood so if Amplify Auth still isn't suitable then try this for more flexibility and smaller bundle sizes than Amplify itself. There are great examples on the amazon-cognito-identity-js homepage.
+[amazon-cognito-identity-js](https://www.npmjs.com/package/amazon-cognito-identity-js) is what Amplify uses under the hood so if Amplify Auth still isn't suitable then try this for more flexibility and smaller bundle sizes than Amplify itself. There are great examples on the amazon-cognito-identity-js homepage.
 
 #### Hosted UI Domains
 
@@ -56,4 +56,4 @@ Cognito also offers **Hosted UI Domain** with  OAuth 2.0 authorization. This is 
 
 #### AWS SDKs
 
-AWS SDK (https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/) is another option for either client-side or server-side authentication. The SDKs are available in many languages such .NET, C++, PHP, Python, Ruby, Go, JavaScript and more.
+[AWS SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/) is another option for either client-side or server-side authentication. The SDKs are available in many languages such .NET, C++, PHP, Python, Ruby, Go, JavaScript and more.
