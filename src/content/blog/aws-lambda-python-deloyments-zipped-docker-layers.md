@@ -129,31 +129,22 @@ deactivate
 #### Make a new directory so files can be copied into it
 
 ```bash
-
 mkdir -p python/lib/python3.10/site-packages
-
 
 ```
 
 #### Copy the venv's installed dependencies into the new directory
 
 ```bash
-
 cp -r venv/lib/python3.10/site-packages/* python/lib/python3.10/site-packages
-
-
 ```
 
 #### Zip and upload to Lambda or S3
 
 ```bash
-
 zip lambda_layer.zip ./python/lib/python3.10/site-packages
-
-
 ```
 
-	
 ## Lambda Docker Container Images
 
 Lambda has supported container images since 2020 and has gotten some interesting performance upgrades since its initial release. This [2023 UseNix talk]([https://www.youtube.com/watch?v=Wden61jKWvs]) from Marc Brooker goes into detail on how they've used lazy loading, deduplication and other techniques to achieve up to 15x faster cold start times while having 10gb max image size.
@@ -165,8 +156,6 @@ Lambda with containers also gives the benefit of being able to do testing earlie
 #### Sample Dockerfile for AWS Lambda container image
 
 ```bash
-
-
 FROM public.ecr.aws/lambda/python:3.10
 
 ENV  AWS_LAMBDA_FUNCTION_TIMEOUT=60
@@ -178,8 +167,6 @@ RUN pip install -r requirements.txt
 COPY lambda_function.py ${LAMBDA_TASK_ROOT}
 
 CMD [ "lambda_function.handler" ]
-
-
 
 ```
 
