@@ -19,6 +19,8 @@ This article is a primer for anyone interested in using the Terraform scripts an
 
 This is the original and still great way to do Lambda deployments. It's a straight forward process where you zip the function code plus any of its dependencies into a compressed file and upload the zip directly to Lambda or put it in an S3 bucket.
 
+
+
 Zipped deployments have a file size limitation of 50MB for the compressed zip file and 250MB uncompressed. This is *usually* okay since Lambdas are intended to be focused, short running functions with a maximum execution time of 15 minutes. 
 
 ### For many use cases you can do a zipped deployment with dependencies like this
@@ -32,29 +34,18 @@ source ./venv/bin/activate
 
 #### Install dependencies
 
-```bash
-
-pip install -r requirements.txt
-
-
-```
+`pip install -r requirements.txt`
 
 #### Zip the *site-packages* folder that was created in the virtual environment folder
 
 ```bash
-
 zip lambda.zip -r ./venv/lib/python3.10/site-packages/
-
-
 ```
 
 #### Add the lambda function python file 
 
 ```bash
-
 zip lambda.zip lambda_function.py
-
-
 ```
 
 #### Upload the zip to Lambda or S3 Bucket
@@ -62,18 +53,14 @@ zip lambda.zip lambda_function.py
 This can work well until you install libraries like Pandas that are using extensions made in C or C++ which are compiled languages. That means Pandas isn't a pure Python library and a package manager like pip that installs Pandas will also need to compile the C code that Pandas uses.  The issue is the development environment may be a different operating system or architecture than the Lambda's execution environment in AWS. Your Lambda functions will likely be running on *Amazon Linux 2* or the newer *Amazon Linux 2023*. 
 
 ```bash
-
 {
  "errorMessage": "Unable to import module 'lambda_function': Unable to import required dependencies:\nnumpy: No module named 'numpy'\npytz: No module named 'pytz'",
 }
-
-
 ```
 
 There are several ways around this. An obvious one is using Lambda layers which will be discussed later in this article. You could also download the wheels file for the Python library and try this:
 
 ```bash
-
 # this example is for x86_64 architecture. 
 #  for arm64 you need to change --platform to _aarch64
 
@@ -84,8 +71,6 @@ pip install \
     --python-version 3.10 \
     --only-binary=:all: --upgrade \
     pandas
-
-
 ```
 
 At the end of the article I'll show a few other ways to install libraries that shouldn't be used in production but still an interesting look around the Lambda execution environment using Python's subprocess and sys modules. 
