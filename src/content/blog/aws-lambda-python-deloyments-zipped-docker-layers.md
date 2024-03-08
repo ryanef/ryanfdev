@@ -33,28 +33,19 @@ source ./venv/bin/activate
 #### Install dependencies
 
 ```bash
-
 pip install -r requirements.txt
-
-
 ```
 
 #### Zip the *site-packages* folder that was created in the virtual environment folder
 
 ```bash
-
 zip lambda.zip -r ./venv/lib/python3.10/site-packages/
-
-
 ```
 
 #### Add the lambda function python file 
 
 ```bash
-
 zip lambda.zip lambda_function.py
-
-
 ```
 
 #### Upload the zip to Lambda or S3 Bucket
@@ -62,21 +53,16 @@ zip lambda.zip lambda_function.py
 This can work well until you install libraries like Pandas that are using extensions made in C or C++ which are compiled languages. That means Pandas isn't a pure Python library and a package manager like pip that installs Pandas will also need to compile the C code that Pandas uses.  The issue is the development environment may be a different operating system or architecture than the Lambda's execution environment in AWS. Your Lambda functions will likely be running on *Amazon Linux 2* or the newer *Amazon Linux 2023*. 
 
 ```bash
-
 {
  "errorMessage": "Unable to import module 'lambda_function': Unable to import required dependencies:\nnumpy: No module named 'numpy'\npytz: No module named 'pytz'",
 }
-
-
 ```
 
 There are several ways around this. An obvious one is using Lambda layers which will be discussed later in this article. You could also download the wheels file for the Python library and try this:
 
 ```bash
-
 # this example is for x86_64 architecture. 
 #  for arm64 you need to change --platform to _aarch64
-
 pip install \
     --platform manylinux2014_x86_64 \
     --target=package \
@@ -84,8 +70,6 @@ pip install \
     --python-version 3.10 \
     --only-binary=:all: --upgrade \
     pandas
-
-
 ```
 
 At the end of the article I'll show a few other ways to install libraries that shouldn't be used in production but still an interesting look around the Lambda execution environment using Python's subprocess and sys modules. 
@@ -104,29 +88,22 @@ When Lambda pulls in a layer, it extracts the libraries to the /opt directory of
 
 ```bash
 python3 -m venv venv
-
 source ./venv/bin/activate
 #### Install dependencies
 ```bash
-
 pip install -r requirements.txt
-
 ```
 
 #### Deactivate the virtual environment
 
 ```bash
-
 deactivate
-
-
 ```
 
 #### Make a new directory so files can be copied into it
 
 ```bash
 mkdir -p python/lib/python3.10/site-packages
-
 ```
 
 #### Copy the venv's installed dependencies into the new directory
@@ -163,7 +140,6 @@ RUN pip install -r requirements.txt
 COPY lambda_function.py ${LAMBDA_TASK_ROOT}
 
 CMD [ "lambda_function.handler" ]
-
 ```
 
 ### Lambda Docker Python deployment process
@@ -176,51 +152,36 @@ This process is using an [AWS base image](https://docs.aws.amazon.com/lambda/lat
 
 **Python3.10 on ECR**:
 ```bash
-
 public.ecr.aws/lambda/python:3.10-x86_64
-
-
 ```
 #### Make a Dockerfile in root directory of Lambda function
 
 - Build and run the Dockerfile locally  to make sure it works
 
 ```bash
-
 docker build --platform linux/amd64 -t docker-image:test .  
 
 docker run --platform linux/amd64 -p 9000:8080 docker-image:test 
-
-
 ```
 
 #### Curl the running container
 
 ```bash
-
 curl "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
-
-
 ```
 
 #### Kill container
 
 ```bash
-
 docker ps
 docker kill [container id]
-
-
 ```
 
 #### Login to Elastic Container Registry
 
 ```bash
-
 aws ecr get-login-password \
 --region us-east-1 | docker login --username AWS --password-stdin 111122223333.dkr.ecr.us-east-1.amazonaws.com
-
-
 ```
 
 #### Create a repository in ECR
@@ -229,43 +190,31 @@ aws ecr get-login-password \
 
 aws ecr create-repository \
 --repository-name mylambdarepo \
---region us-east-1 --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE 
-
-
+--region us-east-1 --image-scanning-configuration scanOnPush=true \ --image-tag-mutability MUTABLE 
 ```
 
 #### Copy *repositoryURI* of the output from the command above
 
 ```bash
-
  # REPLACE ACCOUNT ID AND REGION
-
 "repositoryUri": "111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo"  
-
-
 ```
 
 #### Tag the Docker image with the *repositoryUri*
 
 ```bash
-
 docker tag docker-image:test 111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo:latest
-
-
 ```
+
 #### Push the image to ECR
 
 ```bash
-
 docker push 111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo:latest
-
-
 ```
 
 #### Create an Execution Role for the Lambda [AWS docs](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-awscli.html#with-userapp-walkthrough-custom-events-create-iam-role)
 
 ```bash
-
 aws iam create-role \
  --role-name docker-lambda \
  --assume-role-policy-document '{
@@ -273,9 +222,8 @@ aws iam create-role \
     [{ "Effect": "Allow", "Principal": 
     {"Service": "lambda.amazonaws.com"}, 
     "Action": "sts:AssumeRole"}]}'
-
-
 ```
+
 #### Attach the managed AWS Execution Policy to the role
 
 ```bash
@@ -287,42 +235,32 @@ aws iam attach-role-policy \
 #### Zip the lambda_function.py file 
 
 ```bash
-
 zip function.zip lambda_function.py
-
 ```
+
 #### Create Lambda Function use the ARN from the Execution Role 
 
 ```bash
-
 aws lambda create-function \
 --function-name docker-lambda \
 --package-type Image \
 --code ImageUri=111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo:latest \
 --role arn:aws:iam::111122223333:role/lambda-ex
-
-
 ```
 
 #### Finally, time to invoke the function
 
 ```bash 
-
 aws lambda invoke --function-name hello-world response.json
-
-
 ```
 
 If everything went according to plan the response you see should look like this:
 
 ```bash
-
 {
     "StatusCode": 200,
     "ExecutedVersion": "$LATEST"
 }
-
-
 ```
 
 If you don't get a 200 StatusCode then double check the values you entered above match your AWS account ID, function name, role name and region.
@@ -332,7 +270,6 @@ If you don't get a 200 StatusCode then double check the values you entered above
 I mentioned earlier this is a look at using *subprocess* and *sys* modules to install dependencies with Python code. It's really slow and not recommended but just a way to 
 
 ```python
-
 import os
 import sys
 import subprocess
@@ -347,8 +284,7 @@ def lambda_handler(event, context):
 
     msft = yf.Ticker('MSFT')
 
-    print(msft)
-    
+    print(msft)    
 ```
 
 The above example works but is actually so slow you have to increase the default Lambda timeout to 30 seconds or it fails.  Instead of doing the subprocess.call() and doing the install from the code, you could also do your *pip install* locally like you normally would into *--target ./package* and use `sys.path.insert(1, './package')` at the top of your Python file. Again, this shouldn't really be done for any other reason to poke around Lambda out of curiosity.
