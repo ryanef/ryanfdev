@@ -106,7 +106,10 @@ When Lambda pulls in a layer, it extracts the libraries to the /opt directory of
 python3 -m venv venv
 
 source ./venv/bin/activate
+```
+
 #### Install dependencies
+
 ```bash
 
 pip install -r requirements.txt
@@ -116,10 +119,7 @@ pip install -r requirements.txt
 #### Deactivate the virtual environment
 
 ```bash
-
 deactivate
-
-
 ```
 
 #### Make a new directory so files can be copied into it
@@ -163,7 +163,6 @@ RUN pip install -r requirements.txt
 COPY lambda_function.py ${LAMBDA_TASK_ROOT}
 
 CMD [ "lambda_function.handler" ]
-
 ```
 
 ### Lambda Docker Python deployment process
@@ -176,96 +175,69 @@ This process is using an [AWS base image](https://docs.aws.amazon.com/lambda/lat
 
 **Python3.10 on ECR**:
 ```bash
-
 public.ecr.aws/lambda/python:3.10-x86_64
-
-
 ```
 #### Make a Dockerfile in root directory of Lambda function
 
 - Build and run the Dockerfile locally  to make sure it works
 
 ```bash
-
 docker build --platform linux/amd64 -t docker-image:test .  
 
 docker run --platform linux/amd64 -p 9000:8080 docker-image:test 
-
-
 ```
 
 #### Curl the running container
 
 ```bash
-
 curl "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
-
-
 ```
 
 #### Kill container
 
 ```bash
-
 docker ps
 docker kill [container id]
-
-
 ```
 
 #### Login to Elastic Container Registry
 
 ```bash
-
 aws ecr get-login-password \
 --region us-east-1 | docker login --username AWS --password-stdin 111122223333.dkr.ecr.us-east-1.amazonaws.com
-
-
 ```
 
 #### Create a repository in ECR
 
 ```bash
-
 aws ecr create-repository \
 --repository-name mylambdarepo \
 --region us-east-1 --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE 
-
-
 ```
 
 #### Copy *repositoryURI* of the output from the command above
 
 ```bash
-
  # REPLACE ACCOUNT ID AND REGION
 
 "repositoryUri": "111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo"  
-
-
 ```
 
 #### Tag the Docker image with the *repositoryUri*
 
 ```bash
-
 docker tag docker-image:test 111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo:latest
-
-
 ```
+
 #### Push the image to ECR
 
 ```bash
-
 docker push 111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo:latest
-
-
 ```
 
 #### Create an Execution Role for the Lambda [AWS docs](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-awscli.html#with-userapp-walkthrough-custom-events-create-iam-role)
 
 ```bash
-
 aws iam create-role \
  --role-name docker-lambda \
  --assume-role-policy-document '{
@@ -273,9 +245,8 @@ aws iam create-role \
     [{ "Effect": "Allow", "Principal": 
     {"Service": "lambda.amazonaws.com"}, 
     "Action": "sts:AssumeRole"}]}'
-
-
 ```
+
 #### Attach the managed AWS Execution Policy to the role
 
 ```bash
@@ -284,6 +255,7 @@ aws iam attach-role-policy \
     --policy-arn \
     arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole 
 ```
+
 #### Zip the lambda_function.py file 
 
 ```bash
@@ -294,35 +266,26 @@ zip function.zip lambda_function.py
 #### Create Lambda Function use the ARN from the Execution Role 
 
 ```bash
-
 aws lambda create-function \
 --function-name docker-lambda \
 --package-type Image \
 --code ImageUri=111122223333.dkr.ecr.us-east-1.amazonaws.com/mylambdarepo:latest \
 --role arn:aws:iam::111122223333:role/lambda-ex
-
-
 ```
 
 #### Finally, time to invoke the function
 
 ```bash 
-
 aws lambda invoke --function-name hello-world response.json
-
-
 ```
 
 If everything went according to plan the response you see should look like this:
 
 ```bash
-
 {
     "StatusCode": 200,
     "ExecutedVersion": "$LATEST"
 }
-
-
 ```
 
 If you don't get a 200 StatusCode then double check the values you entered above match your AWS account ID, function name, role name and region.
