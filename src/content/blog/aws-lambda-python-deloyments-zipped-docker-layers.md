@@ -26,12 +26,8 @@ Zipped deployments have a file size limitation of 50MB for the compressed zip fi
 #### Create a Python virtual environment and activate it
 
 ```bash
-
 python3 -m venv venv
-
 source ./venv/bin/activate
-
-
 ```
 
 #### Install dependencies
