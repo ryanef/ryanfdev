@@ -111,9 +111,7 @@ source ./venv/bin/activate
 #### Install dependencies
 
 ```bash
-
 pip install -r requirements.txt
-
 ```
 
 #### Deactivate the virtual environment
@@ -126,7 +124,6 @@ deactivate
 
 ```bash
 mkdir -p python/lib/python3.10/site-packages
-
 ```
 
 #### Copy the venv's installed dependencies into the new directory
