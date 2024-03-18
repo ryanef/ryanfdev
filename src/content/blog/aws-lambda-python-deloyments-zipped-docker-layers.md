@@ -34,6 +34,10 @@ source ./venv/bin/activate
 
 #### Install dependencies
 
+
+```bash
+pip install -r requirements.txt
+```
 `pip install -r requirements.txt`
 
 #### Zip the *site-packages* folder that was created in the virtual environment folder
