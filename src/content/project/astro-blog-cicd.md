@@ -2,13 +2,13 @@
 title: "AutoBlog: A CI/CD pipeline with AstroJS, Terraform, GitHub Actions"
 pubDate: "February 28 2024"
 heroImage: "/blog-images/aws-oac-cf-s3.png"
-tags: ["AWS", "Terraform", "AstroJS", "Github Actions"]
+tags: ["AWS", "CloudFront", "Terraform", "AstroJS", "Github Actions"]
 description: "Deploy AWS infrastructure with Terraform and GitHub Actions"
 ---
 
 ## Introduction
 
-This project is about hosting static website files in an S3 bucket but **not** with the *static website hosting* option enabled. The static website option in S3 requires public access on the bucket and in some cases that's what you want, for example if your website is just documentation for an app you made.
+This project is about hosting a website in an AWS S3 bucket without enabling the website hosting setting in S3. That sounds couterintuitive but to use that setting your bucket must be made public and sometimes that's what you want but maybe you only want *some* parts of your website to have public access. That's when we can take advantage of CloudFront acting like a reverse proxy to restrict access to the bucket with Origin Access Control.
 
 <img src="/blog-images/aws-oac-cf-s3.png" alt="CloudFront OAC S3 Diagram" />
 
@@ -16,13 +16,15 @@ The user cannot *directly* access objects in the bucket even if they have the li
 
 ## Starting Point
 
-- Terraform installed in an environment with AWS with administrator access
-  - Edit `providers.tf` to choose `profile` or `shared_credentials_file`
-- GitHub account with a new repository deploying the blog with GitHub Actions
+To follow along you will need a new Github repository, an AWS account with administrator access and a basic familiarity with Terraform.
 
 ## Deploy Infrastructure to AWS
 
-These Terraform modules can be used in any environment with access to AWS credentials. Do not hard code AWS Access Keys into the Terraform files because Terraform state is stored in plain text so don't do it even for testing and development. If the code accidentally makes it to a public GitHub repo, there are hackers always running scanners looking for these mistakes. [Setup the AWS CLI](https://docs.aws.amazon.com/polly/latest/dg/setup-aws-cli.html) and there should be a credentials file in `/home/linuxUsername/.aws/credentials` or `C:\Users\WindowsUsername\.aws\credentials` which lists AWS profiles and their names in brackets like [default], [dev], [prod]. These can be referenced in `providers.tf` or can be commented out if you have a way of providing short term credentials through an IAM role which is an even better option.
+There should be zero cost associated with this deployment but be sure to `terraform destroy` when you're done since it isn't intended for production use anyway. You can run Terraform locally or any machine where AWS credentials can be provided.
+
+#### Credentials
+
+Do not hard code AWS Access Keys into the Terraform files because Terraform state is stored in plain text so don't do it even for testing and development. If the code accidentally makes it to a public GitHub repo, there are hackers always running scanners looking for these mistakes. [Setup the AWS CLI](https://docs.aws.amazon.com/polly/latest/dg/setup-aws-cli.html) and there should be a credentials file in `/home/linuxUsername/.aws/credentials` or `C:\Users\WindowsUsername\.aws\credentials` which lists AWS profiles and their names in brackets like [default], [dev], [prod]. These can be referenced in `providers.tf` or can be commented out if you have a way of providing short term credentials through an IAM role which is an even better option.
 
 1. Clone the repository with the Terraform files `git clone git@github.com:ryanef/autoblog-infra.git`
 2. Change into the directory: `cd autoblog-infra`
