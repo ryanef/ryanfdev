@@ -8,13 +8,13 @@ description: "A high level overview of AWS Cognito as an authentication and auth
 
 AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization.  Not only does it support the common scenario of client side user registration and signing in everyone is familiar with but machine to machine authentication is possible with server side resources. 
 
-AWS Cognito really does a lot so it can be overwhelming but this series  will start with a high level overview then jump into the deep end with the Terraform and React application provided in the Project link will go here.
+AWS Cognito really does a lot so it can be overwhelming but this series will start with a high level overview then jump into the deep end with the Terraform and React application provided.
 
-**Reminder:**
+**Terminology Reminder:**
 
-**Authentication**: Login and verify your credentials. The most common example is username and password.  
+**Authentication**: The process of verifying your identity. The most common example is username and password.  
 
-**Authorization:** Manage your access to services. You've proven who you say you are, now you have access to specific resources.
+**Authorization:** Manage your access to services. You've proven who you say you are so now you have access to specific resources, such as a GetItem call on DynamoDB to retrieve profile information in the database.
 
 ### The Two Faces of AWS Cognito
 

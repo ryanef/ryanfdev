@@ -6,7 +6,7 @@ tags: ["aws", "lambda", "python", "terraform"]
 description: "AWS Lambda Python deployments can get a little tricky sometimes if you're using dependencies, but one of these options should cover just about any use case."
 ---
 
-This article is a primer for anyone interested in using the Terraform scripts and code provided in this --project link--.  The scripts give you the option to deploy Lambda functions in three different ways so this is a high level overview of why you may choose one over the others. 
+This article is a primer for anyone interested in using the Terraform scripts and code provided in this --project link--.  The scripts give you the option to deploy Lambda functions in three different ways so this is a high level overview of why you may choose one over the others.
 
 ### On this page
 
@@ -18,8 +18,6 @@ This article is a primer for anyone interested in using the Terraform scripts an
 ## Zipped Lambda Deployments
 
 This is the original and still great way to do Lambda deployments. It's a straight forward process where you zip the function code plus any of its dependencies into a compressed file and upload the zip directly to Lambda or put it in an S3 bucket.
-
-
 
 Zipped deployments have a file size limitation of 50MB for the compressed zip file and 250MB uncompressed. This is *usually* okay since Lambdas are intended to be focused, short running functions with a maximum execution time of 15 minutes. 
 
@@ -163,9 +161,12 @@ This process is using an [AWS base image](https://docs.aws.amazon.com/lambda/lat
 ```bash
 public.ecr.aws/lambda/python:3.10-x86_64
 ```
+
 #### Make a Dockerfile in root directory of Lambda function
 
-- Build and run the Dockerfile locally  to make sure it works
+Use the sample Dockerfile from above and paste it into a file named `Dockerfile`
+
+#### Build and run the Dockerfile locally to make sure it works
 
 ```bash
 docker build --platform linux/amd64 -t docker-image:test .  
@@ -242,10 +243,9 @@ aws iam attach-role-policy \
     arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole 
 ```
 
-#### Zip the lambda_function.py file 
+#### Zip the lambda_function.py file
 
 ```bash
-
 zip function.zip lambda_function.py
 
 ```
@@ -278,7 +278,7 @@ If you don't get a 200 StatusCode then double check the values you entered above
 
 ## Exploring Lambda Execution Environment
 
-I mentioned earlier this is a look at using *subprocess* and *sys* modules to install dependencies with Python code. It's really slow and not recommended but just a way to 
+I mentioned earlier this is a look at using *subprocess* and *sys* modules to install dependencies with Python code. It's really slow and not recommended but just some random trivia about Lambda.
 
 ```python
 
@@ -295,9 +295,7 @@ import yfinance as yf
 def lambda_handler(event, context):
 
     msft = yf.Ticker('MSFT')
-
     print(msft)
-    
 ```
 
 The above example works but is actually so slow you have to increase the default Lambda timeout to 30 seconds or it fails.  Instead of doing the subprocess.call() and doing the install from the code, you could also do your *pip install* locally like you normally would into *--target ./package* and use `sys.path.insert(1, './package')` at the top of your Python file. Again, this shouldn't really be done for any other reason to poke around Lambda out of curiosity.
