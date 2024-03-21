@@ -1,7 +1,7 @@
 ---
 title: "Authentication with AWS Cognito and Terraform"
 pubDate: "February 8 2024"
-heroImage: "https://loremflickr.com/640/360"
+heroImage: "/blog-images/cognito-api-gw2.png"
 tags: ["AWS", "Cognito", "Terraform", "React", "DynamoDB"]
 description: A full stack application deployed in a serverless architecture created with Terraform that uses AWS Cognito, Lambda, DynamoDB 
 ---
