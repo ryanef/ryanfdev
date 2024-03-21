@@ -37,6 +37,12 @@ In `variables.tf` you can change AWS Region, S3 Bucket name and a few other name
 
 The variable `enable_openid` is true or false to configure [OpenID Connect](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/) in your AWS account to setup trust between AWS and GitHub. You can change it to false if your account already has one. OIDC is to establish trust between AWS and GitHub as a way to deliver the IAM Role for short-lived credentials to your AWS account for improved security instead of putting AWS Access Keys into GitHub.
 
+There should be zero cost associated with this deployment but be sure to `terraform destroy` when you're done since it isn't intended for production use anyway. You can run Terraform locally or any machine where AWS credentials can be provided.
+
+#### Credentials
+
+Do not hard code AWS Access Keys into the Terraform files because Terraform state is stored in plain text so don't do it even for testing and development. If the code accidentally makes it to a public GitHub repo, there are hackers always running scanners looking for these mistakes. [Setup the AWS CLI](https://docs.aws.amazon.com/polly/latest/dg/setup-aws-cli.html) and there should be a credentials file in `/home/linuxUsername/.aws/credentials` or `C:\Users\WindowsUsername\.aws\credentials` which lists AWS profiles and their names in brackets like [default], [dev], [prod]. These can be referenced in `providers.tf` or can be commented out if you have a way of providing short term credentials through an IAM role which is an even better option.
+
 1. Clone the repository with the Terraform files `git clone git@github.com:ryanef/autoblog-infra.git`
 2. Change into the directory: `cd autoblog-infra`
 3. Initialize Terraform: `terraform init`
