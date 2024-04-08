@@ -41,8 +41,6 @@ To demonstrate this I've put together 2 images that can be used in Fargate Task 
 
 You can use your own images these are just samples for demonstration.
 
-### Frontend - React with NGINX - <a href="https://github.com/ryanef/frontend-ecs-project" target="_blank">(link)</a>
-
 NGINX serves the static React files and configured to handle the client side routing. Also in `nginx.conf` is a proxy_pass to */api* and the AWS CloudMap DNS resolver ```169.254.169.253``` so services can communicate via names like http://frontend:3000 and http://backend:5000
 
 ### FastAPI Backend Image - <a href="https://github.com/ryanef/backend-ecs-project" target="_blank">(link)</a>
