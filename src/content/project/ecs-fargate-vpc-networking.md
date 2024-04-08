@@ -1,19 +1,35 @@
 ---
-title: "AWS Fargate Networking Patterns"
+title: "AWS Fargate Networking and Deployment Optimization with Terraform"
 pubDate: "March 29 2024"
 heroImage: "/blog-images/ecsterraform.jpg"
 tags: ["Fargate", "Networking", "Docker", "Terraform", "ECS"]
-description: "Launch Fargate services with different networking options for tasks running in private subnets."
+description: "Try different networking options and try new settings to optimize Fargate container deployments."
 ---
 ## AWS Fargate Terraform Module
 
-### On This Page
+## On This Page
+
+- [Introduction](#introduction)
 
 - [Setup Demo App](#test-demo-locally)
 
-- [Deploy with Terraform](#clone-the-terraform-project)
+- [Quick Start Deploy with Terraform](#clone-the-terraform-project)
 
-This Fargate module allows you to experiment with launching multiple services using NAT Gateway, VPC Endpoints, or direct access to public subnets. It also uses Service Connect(AWS CloudMap) for service discovery. For a deeper dive into these networking modes read [this blog](https://ryanf.dev/blog/aws-fargate-vpc-networking) I posted that covers some of the differences.
+- [Logging and Monitoring](#monitoring)
+
+- [Change Network Settings](#change-networking-details)
+
+- [Optimization Settings](#optimization-settings)
+
+## Introduction
+
+This Fargate module allows you to experiment with different networking options like VPC Endpoints and NAT Gateway for Fargate tasks running in private or public subnets.  Also, there's some flexibility in settings for the Application Loadbalancer, Target Groups, Listeners, Health Checks, etc.
+
+This isn't intended for production use but for optimizing and testing. Finding the optimal settings can really speed up your container deployments. AutoScale will be in an upcoming version.
+
+You can add your own images and try deployments with a NAT Gateway or using VPC Endpoints. Easily modify container names and ports, alter health check settings, Target Group deregistration delay, etc. The VPC and networking is created automatically with no configuration required on your end but also customizable.
+
+For a deeper dive into these networking modes read [this blog](https://ryanf.dev/blog/aws-fargate-vpc-networking) I posted that covers some of the differences.
 
 My [VPC](https://registry.terraform.io/modules/ryanef/vpc/aws/latest) and [Loadbalancer](https://registry.terraform.io/modules/ryanef/loadbalancer/aws/latest) modules are required for the networking. They are imported from Terraform Registry in `network.tf` in the root of this module.
 
@@ -22,6 +38,8 @@ For tasks you want to keep in private subnets, you can use either VPC Endpoints 
 To demonstrate this I've put together 2 images that can be used in Fargate Task Definitions. If you want to follow along you'll need Docker, Terraform, node18+, Python 3.10 and an AWS account with administrator access.
 
 ## Setup Demo App
+
+You can use your own images these are just samples for demonstration.
 
 ### Frontend - React with NGINX - [(link)](https://github.com/ryanef/frontend-ecs-project) 
 
@@ -32,7 +50,6 @@ NGINX serves the static React files and configured to handle the client side rou
 FastAPI with only a root `/` and `/api` route setup for responses to frontend API calls.
 
 ## Test Demo Locally
-
 
 ### Clone the frontend project files
 
@@ -124,11 +141,11 @@ After adjusting settings and adding your ECR image URIs you're ready to apply. I
 terraform apply
 ```
 
-When it is done, it'll output the DNS address for the loadbalancer and you can visit that address in your browser. You may get a 503 error the first minute or so while the tasks finish launching. After the web application loads, try clicking "Profile" on the navigation menu and see if you get a message from the Python backend. If you say "error in profile", it's possible the backend container isn't totally complete and needs a few more seconds.
+When it is done, it'll output the DNS address for the loadbalancer and you can visit that address in your browser. You may get a 503 error the first minute or so while the tasks finish launching. After the web application loads, try clicking "Profile" on the navigation menu and see if you get a message from the Python backend. If you see "error in profile" displayed on the page, it's possible the backend container needs a few more seconds to setup.
 
 ## Monitoring
 
-VPC Flow Logs, ECS Service and ECS Tasks are all using CloudWatch Logs and can be found with names like `vpcName-environment-*`. The Application Loadbalancer does not have logging enabled but if you wish to do that it will require making an S3 Bucket.
+VPC Flow Logs, ECS Service and ECS Tasks are all using CloudWatch Logs and can be found with names like `vpcName-environment-*`. The Application Loadbalancer does not have logging enabled but if you wish to do that it will require making an S3 Bucket. X-Ray will be optional in a future version.
 
 ## Change Networking Details
 
@@ -137,3 +154,57 @@ If you want to change the default VPC CIDR or add more subnets, go to `variables
 ## Add your own ECS Services / Task Definitions
 
 Go to `locals.tf` and you'll see a locals block for the services and the default `frontend` and `backend`. To add more, simply add new blocks and change the values to your image link, container name, container port, etc. There's also a locals block for `target_groups` and you may need to change the port numbers to match your container ports.
+
+## Optimization Settings
+
+### Application Loadbalancer
+
+Most of these can be changed in the `locals.tf` file where the ECS Services and Target Group settings are. The file name is beside the variable names. You may want different settings for different services so keeping them flexible in these locals blocks seems best for now.
+
+`healthy_threshold` - **locals.tf**
+
+**HealthyThresholdCount**: Number of consecutive passing health checks before a target is considered healthy. This is an ALB setting but ECS does check this as a consideration of container health.
+
+**Default**: 5
+**Range**: 2-10
+
+----
+
+`unhealthy_threshold` - **locals.tf**
+
+**UnhealthyThresholdCount**: Number of consecutive failed health checks before target is marked unhealthy.
+
+**Default**: 2
+
+**Range**: 2-10
+
+----
+
+`interval` - **locals.tf**
+
+**HealthCheckIntervalSeconds**: The time in seconds between each attempt at a health check.
+
+**Default**: 30 seconds for *ip* and *instance* targets
+
+**Range**: 5–300 seconds
+
+----
+
+`timeout` - **locals.tf**
+
+**HealthCheckTimeoutSeconds**: Time in seconds that no response from a target means the health check has failed.
+
+**Default**: 5 seconds for *ip* or *instance* targets
+
+**Range**: 2-120 seconds
+
+----
+
+`deregistration_delay` - **locals.tf**
+  
+**AWS Default**: 300 seconds,
+**Script Default**: 60 seconds
+
+**Range**: 0-3600 seconds
+
+Running containers are "registered" with the Application Loadbalancer's `target groups` which track the IP address and health of targeted containers. When a target is deregistered, that probably means you stopped it on purpose or it errored and crashed. The ALB will stop sending traffic to that target, but there's a concept of `Keep-Alive` in HTTP traffic where the ALB will leave existing connections open for a period of time so users with any in-flight requests don't get suddenly interrupted. ECS will wait on this deregistration_delay time before it forces the container process to be terminated. Most people can significantly lower this unless they have processes or users doing things like large file uploads or some other type of streaming connection.
