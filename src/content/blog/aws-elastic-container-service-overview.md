@@ -20,9 +20,9 @@ There's a *cluster manager* -- a backend service responsible for keeping track o
 
 ## Task Definitions
 
-Tasks are an instantation of a task definition. A task definition lets you define the launch type(EC2, Fargate or External), CPU, Memory, Storage, Container Definitions, Security Groups, Network Mode and much more. Some things are required and some are optional depending on the launch type you choose.
+Tasks are an instantation of a task definition in the same way a house is an instantation of a blueprint. A task definition lets you define the launch type(EC2, Fargate or External), CPU, Memory, Storage, Container Definitions, Security Groups, Network Mode and much more. Some things are required and some are optional depending on the launch type you choose.
 
-A task definition can have one or multiple container definitions. Since a task can have multiple containers it will be important to think about the hard limits set by your CPU and Memory in the Task Definition.
+A task definition can have one or multiple container definitions. A container is a program that runs in isolation from other programs in the same way a house has multiple rooms. Since a task can have multiple containers it will be important to think about the hard limits set by your CPU and Memory in the Task Definition.
 
 ## Container Definitions
 
