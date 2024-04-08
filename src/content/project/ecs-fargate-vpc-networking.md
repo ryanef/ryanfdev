@@ -1,7 +1,7 @@
 ---
 title: "AWS Fargate Networking Patterns"
 pubDate: "March 29 2024"
-heroImage: "/blog-images/cloudfront-blog.png"
+heroImage: "/blog-images/ecsterraform.jpg"
 tags: ["Fargate", "Networking", "Docker", "Terraform", "ECS"]
 description: "Launch Fargate services with different networking options for tasks running in private subnets."
 ---
