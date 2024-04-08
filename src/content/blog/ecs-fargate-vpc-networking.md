@@ -1,9 +1,9 @@
 ---
-title: "AWS Fargate: Networking Patterns for Fargate Tasks"
+title: "AWS Fargate: Networking Options for Tasks in Private Subnets"
 pubDate: "March 30 2024"
-heroImage: "/blog-images/fargatelogo.png"
+heroImage: "/blog-images/fargatenetworking.png"
 tags: ["Fargate", "Networking", "Docker", "ECS"]
-description: "AWS Fargate for experimenting with different networking options."
+description: "A look at using NAT Gateway or VPC Endpoints for Fargate tasks in private subnets."
 ---
 
 ## AWS Fargate Networking

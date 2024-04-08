@@ -14,6 +14,7 @@ To follow along it's assumed you have the following:
 - An AWS Account with AdministratorAccess
 
 AWS Services created by Terraform:
+
 - Cognito - The AWS authentication and authorization service
 - DynamoDB - A database table for creating a user profile upon registration confirmation
 - Lambda - The serverless function that Cognito triggers for inserting the initial user's registration information into the DynamoDB table.
