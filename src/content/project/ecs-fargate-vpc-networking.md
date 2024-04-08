@@ -41,6 +41,8 @@ To demonstrate this I've put together 2 images that can be used in Fargate Task 
 
 You can use your own images these are just samples for demonstration.
 
+### React and NGINX Image - <a href="https://github.com/ryanef/frontend-ecs-project" target="_blank">(link)</a>
+
 NGINX serves the static React files and configured to handle the client side routing. Also in `nginx.conf` is a proxy_pass to */api* and the AWS CloudMap DNS resolver ```169.254.169.253``` so services can communicate via names like http://frontend:3000 and http://backend:5000
 
 ### FastAPI Backend Image - <a href="https://github.com/ryanef/backend-ecs-project" target="_blank">(link)</a>
@@ -164,6 +166,7 @@ Most of these can be changed in the `locals.tf` file where the ECS Services and 
 **HealthyThresholdCount**: Number of consecutive passing health checks before a target is considered healthy. This is an ALB setting but ECS does check this as a consideration of container health.
 
 **Default**: 5
+
 **Range**: 2-10
 
 ----
