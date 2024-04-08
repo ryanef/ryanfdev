@@ -29,9 +29,9 @@ This isn't intended for production use but for optimizing and testing. Finding t
 
 You can add your own images and try deployments with a NAT Gateway or using VPC Endpoints. Easily modify container names and ports, alter health check settings, Target Group deregistration delay, etc. The VPC and networking is created automatically with no configuration required on your end but also customizable.
 
-For a deeper dive into these networking modes read [this blog](https://ryanf.dev/blog/aws-fargate-vpc-networking) I posted that covers some of the differences.
+For a deeper dive into these networking modes read <a href="https://ryanf.dev/blog/aws-fargate-networking-options-for-tasks-in-private-subnets" target="_blank">this blog</a> I posted that covers some of the differences.
 
-My [VPC](https://registry.terraform.io/modules/ryanef/vpc/aws/latest) and [Loadbalancer](https://registry.terraform.io/modules/ryanef/loadbalancer/aws/latest) modules are required for the networking. They are imported from Terraform Registry in `network.tf` in the root of this module.
+My <a href="https://registry.terraform.io/modules/ryanef/vpc/aws/latest" target="_blank">VPC</a> and <a href="https://registry.terraform.io/modules/ryanef/loadbalancer/aws/latest" target="_blank">LoadBalancer</a> modules are required for the networking. They are imported from Terraform Registry in `network.tf` in the root of this module.
 
 For tasks you want to keep in private subnets, you can use either VPC Endpoints or NAT Gateway. They can be enabled in `variables.tf`
 
@@ -41,11 +41,9 @@ To demonstrate this I've put together 2 images that can be used in Fargate Task 
 
 You can use your own images these are just samples for demonstration.
 
-### Frontend - React with NGINX - [(link)](https://github.com/ryanef/frontend-ecs-project) 
-
 NGINX serves the static React files and configured to handle the client side routing. Also in `nginx.conf` is a proxy_pass to */api* and the AWS CloudMap DNS resolver ```169.254.169.253``` so services can communicate via names like http://frontend:3000 and http://backend:5000
 
-### FastAPI Backend Image - [(link)](https://github.com/ryanef/backend-ecs-project)
+### FastAPI Backend Image - <a href="https://github.com/ryanef/backend-ecs-project" target="_blank">(link)</a>
 
 FastAPI with only a root `/` and `/api` route setup for responses to frontend API calls.
 
@@ -131,7 +129,7 @@ Go to `variables.tf` and update `frontend_image` and `backend_image` with your E
 
 Enable NAT Gateway or VPC Endpoints by changing the default values of `use_endpoints` and `use_nat_gateway` to true. The variables for vpc_name and environment are used to name resources and tag them.
 
-You will have to make sure Terraform has authentication to AWS. If you're in an environment where you've setup AWS access already then you shouldn't need to take any extra steps for this.  [AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) shows the steps Terraform takes to look for AWS credentials. Don't hard code your AWS Access Keys into anything but you can go to `providers.tf` and add `shared_credentials_file` or the `profile` which you can see in the AWS Provider docs.
+You will have to make sure Terraform has authentication to AWS. If you're in an environment where you've setup AWS access already then you shouldn't need to take any extra steps for this.  <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" target="_blank">AWS Provider Docs</a> shows the steps Terraform takes to look for AWS credentials. Don't hard code your AWS Access Keys into anything but you can go to `providers.tf` and add `shared_credentials_file` or the `profile` which you can see in the AWS Provider docs.
 
 ## Terraform Apply
 
