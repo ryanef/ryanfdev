@@ -10,7 +10,7 @@ tags: ["Terraform", "ECS", "Docker"]
 
 ## ECS Clusters
 
-Elastic Container Service uses the concept of clusters and they run in two modes:**Fargate** or **EC2 Mode**. Just like any other orchestrated environment you may be familiar with a cluster is a set of servers where there's a main server often called a *control plane* with *worker nodes*. ECS is a fully managed system so let's take a quick glance at what it provides.
+Elastic Container Service uses the concept of clusters and they run in two modes: **Fargate** or **EC2 Mode**. Just like any other orchestrated environment you may be familiar with a cluster is a set of servers where there's a main server often called a *control plane* with *worker nodes*. ECS is a fully managed system so let's take a quick glance at what it provides.
 
 There's a *cluster manager* -- a backend service responsible for keeping track of your container's `state`. A company may have hundreds or thousands of containers running on any given day, so keeping track of their state(memory, cpu, networking info, storage volumes, etc...) is critical. ECS uses a key-value store to track information about your containers with the help of an `agent` - a lightweight program written in Go - that is automatically installed on every EC2 instance. As you can imagine, state can conflict at times and ECS deals with this by using optimistic concurrency.
 
