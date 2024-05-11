@@ -6,37 +6,35 @@ tags: ["Terraform", "AWS", "Cognito"]
 description: "A high level overview of AWS Cognito as an authentication and authorization service. AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization."
 ---
 
-AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization.  Not only does it support the common scenario of client side user registration and signing in everyone is familiar with but machine to machine authentication is possible with server side resources. 
-
-AWS Cognito really does a lot so it can be overwhelming but this series will start with a high level overview then jump into the deep end with the Terraform and React application provided.
+AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization.  This service really does a lot so it can be overwhelming when the documentation is lacking details and examples in some of these areas. 
 
 **Authentication**: The process of verifying your identity. The most common example is username and password.  
 
 **Authorization:** Manage your access to services. You've proven who you say you are so now you have access to specific resources, such as a GetItem call on DynamoDB to retrieve profile information in the database.
 
-## AWS Cognito's Two Sides
+Cognito is one service with two features that do very different things: [User Pools](#user-pools) and [Identity Pools](#identity-pools).
 
-Cognito is one service but when you open it in the AWS console you'll be presented with two options:
+## User Pools
 
-### User Pools
+User Pools are a user directory for web and mobile apps that give many ways of authenticating and authorizing users. If your User Pool authentication is successful you get JSON Web Tokens(JWT) that your application can exchange for access to resources. For *most* AWS services, you need to exchange your JWT for AWS credentials but later we will look at using access tokens with API Gateway.
 
-This is a user directory that provides extra layers of security and identity federation. If your User Pool authentication is successful you get a JSON Web Token(JWT) in return that can be accepted directly by AWS API Gateway but most AWS services cannot accept JWT tokens. For *most* AWS services, you need to exchange your JWT for AWS credentials. User Pools do not grant you access to most AWS services but they do give you many ways to authenticate with registration, login, social media logins, multi-factor authentication and more.
+The access token you get from User Pools is a JSON Web Token(JWT) and has claims about the authenticated user along with a list of scopes you can define. The `userInfo` endpoint is an OIDC endpoint and will respond with user attributes allowed by the openid scope. Your app must collect the tokens from authenticated sessions and add them as bearer tokens to an Authorization header in the request. Configure the authorizer that you configured for the API, path, and method to evaluate token contents. API Gateway returns data only if the request matches the conditions that you set up for your authorizer.
 
-### Identity Pools
+### User Pool App Clients
+
+App clients in a User Pool are where authentication flow, access tokens and scope settings are configured. You can create multiple app clients in one User Pool if you have a reason to do so. An example scenario could be you want different app clients with different access token expiration settings based on how the user logged in.
+
+Mentioned earlier, Cognito can be public facing for users registering on your application or it can be server-side with machine talking to machine.  If you plan on using Cognito for a user on a mobile application or web browser, generally speaking you should *not* check "Generate a client secret" when you first make the app client.
+
+## Identity Pools
 
 These are how you get temporary AWS credentials for authorization to access AWS services by defining permissions on the policies attached to IAM roles.  Federated identities are available through Google, Facebook, User Pool and more. Identity Pools can support dealing with unauthenticated users as well.
 
 Identity Pools will have to be configured to support tokens from one of the external identity providers(e.g. Google, Facebook, or **User Pools**!) but once an authenticated token is provided, Cognito will assume an IAM Role and retrieve temporary access credentials. The credentials will authorize the application to get the resources it needs such as getting a user's pictures from an S3 bucket or their profile information from DynamoDB.  The application gets the permissions the IAM role has and because of this, no access keys or credentials have to be hardcoded in the application or elsewhere.
 
-User Pools and Identity Pools are completely independent of each other and you can choose to use only one or you can use both together. Remember that User Pools *authenticate* and in return you receive a JWT(JSON Web Token) but **most** AWS services will not accept JWTs for access to the service. Now remember that Identity Pools are how you get *authorization* to most AWS services because Identity Pools can exchange a JWT for temporary access credentials. 
+User Pools and Identity Pools are completely independent of each other and you can choose to use only one or you can use both together. Remember that User Pools *authenticate* and in return you receive a JWT(JSON Web Token) but **most** AWS services will not accept JWTs for access to the service. Now remember that Identity Pools are how you get *authorization* to most AWS services because Identity Pools can exchange a JWT for temporary access credentials.
 
-When I say most AWS services will not accept JWTs, there is one notable exception with AWS API Gateway and that will be explored later as well. 
 
-### User Pool App Clients
-
-App clients in a User Pool are where authentication flow, access tokens and scope settings are configured. You can create multiple app clients in one User Pool. Perhaps you would want different app clients with different access token expiration settings based on how the user logged in.
-
-Mentioned earlier, Cognito can be public facing for users registering on your application or it can be server-side with machine talking to machine.  If you plan on using Cognito for a user on a mobile application or web browser, generally speaking you should *not* check "Generate a client secret" when you first make the app client.
 
 ## Ways to use Cognito
 
