@@ -1,8 +1,8 @@
 ---
 title: "AWS Elastic Container Service Overview"
 pubDate: "January 30 2024"
-heroImage: "https://ryanf.dev/blog-images/ecs-fargate.png"
-image: "https://ryanf.dev/blog-images/ecs-fargate.png"
+heroImage: "/blog-images/ecs-overview.png"
+image: "/blog-images/ecs-overview.png"
 description: "Elastic Container Service lets you manage containerized applications at scale on AWS with several cluster modes and pricing options.  Here's a quick refresher to go along with the ECS project."
 tags: ["Terraform", "ECS", "Docker"]
 ---
