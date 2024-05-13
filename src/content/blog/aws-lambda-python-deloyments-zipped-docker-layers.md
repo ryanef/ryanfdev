@@ -6,14 +6,13 @@ tags: ["aws", "lambda", "python", "terraform"]
 description: "AWS Lambda Python deployments can get a little tricky sometimes if you're using dependencies, but one of these options should cover just about any use case."
 ---
 
-This article is a primer for anyone interested in using the Terraform scripts and code provided in this --project link--.  The scripts give you the option to deploy Lambda functions in three different ways so this is a high level overview of why you may choose one over the others.
 
 ### On this page
 
-- Zipped Deployments
-- Lambda Layers
-- Lambda Docker Containers
-- Python subprocess and sys modules
+- [Zipped Deployments](#zipped-lambda-deployments)
+- [Lambda Layers](#lambda-layers)
+- [Lambda Docker Containers](#lambda-docker-container-images)
+- [Lambda's Execution Environment](#exploring-lambda-execution-environment)
 
 ## Zipped Lambda Deployments
 
