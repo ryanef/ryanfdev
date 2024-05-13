@@ -6,6 +6,11 @@ tags: ["Fargate", "Networking", "Docker", "ECS"]
 description: "A look at using NAT Gateway or VPC Endpoints for Fargate tasks in private subnets."
 ---
 
+## On This Page
+
+- [NAT Gateway](#nat-gateway)
+- [VPC Endpoints](#vpc-endpoints)
+- [Application Loadbalancer](#application-loadbalancer)
 ## AWS Fargate Networking
 
 AWS Fargate is a "serverless compute engine" for ECS or EKS and as the name suggests it is great at reducing overhead for server administration, but the networking is still your responsibility.  When a Fargate task is made, it is injected into a VPC and by default given an Elastic Network Interface(ENI) and a private IP address similar to a regular EC2 Instance. VPCs are isolated private networks by default so the Fargate task isn't going to have internet access until some network changes are made.
@@ -32,8 +37,9 @@ There are two types of VPC Endpoints and you'll probably need a combination of b
 
 `Interface Endpoints` are very different. They use ENIs and security groups and plus come with a charge. Whether it's cheaper to use NAT Gateway or VPC Endpoints just depends on how many endpoints you have to make to achieve your goals.
 
-[Interface Endpoint Pricing](https://aws.amazon.com/privatelink/pricing/)
-[NAT Gateway Pricing](https://aws.amazon.com/vpc/pricing/)
+#### [Interface Endpoint Pricing](https://aws.amazon.com/privatelink/pricing/)
+
+#### [NAT Gateway Pricing](https://aws.amazon.com/vpc/pricing/)
 
 As you can see, Interface Endpoints and NAT Gateway both charge per hour and per GB of data processed. NAT has more expensive data processing but if you have to make a lot of Interface Endpoints, you could possibly negate the savings. If you inspect your network traffic and notice you have a lot of data going to/from S3, then opt for an S3 Gateway Endpoint since they're free. S3 also has an Interface Endpoint available, so make sure to pick S3 Gateway Endpoint.
 
