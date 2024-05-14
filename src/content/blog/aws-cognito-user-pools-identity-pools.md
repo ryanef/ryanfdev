@@ -6,16 +6,24 @@ tags: ["Terraform", "AWS", "Cognito"]
 description: "A high level overview of AWS Cognito as an authentication and authorization service. AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization."
 ---
 
-<a href="https://ryanf.dev/projects/cogneato-user-authentication-with-aws-cognito">My Terraform and React projects using Cognito</a>
+## On This Page:
+
+- [Cognito Introduction](#cognito-introduction)
+- [User Pools](#user-pools)
+- [User Pool App Clients](#user-pool-app-clients)
+- [Identity Pools](#identity-pools)
+- [How to Integrate Cognito in Your Application](#integrate-cognito-in-your-application)
 
 
+
+## Cognito Introduction
 AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization. When it comes to price, you get a lot for your money with Cognito but it can be overwhelming in the areas that lack documentation and examples. There's a lot of competition in this space and some offer a better developer experience than Cognito, but when you compare the cost of monthly active users Cognito is usually much cheaper. There can also be benefits beyond the price if your application can benefit from Cognito's integrations with other AWS services.
 
-One reason Cognito confuses people is it's one service with two main features that do very different things: [User Pools](#user-pools) and [Identity Pools](#identity-pools). You can have a User Pool without an Identity Pool and similarly you can have an Identity Pool without a User Pool. You can also integrate them together. Let's look at what they do from a high level and it'll start to make sense.
+At first Cognito can be confusing because it's one service with two main features and those features do very different things: [User Pools](#user-pools) and [Identity Pools](#identity-pools). You can have a User Pool without an Identity Pool and similarly you can have an Identity Pool without a User Pool. You can also integrate them together. Let's look at what they do from a high level and it'll start to make sense.
 
 User Pools are an `identity provider` that **authenticate** the user and Identity Pools **authorize** a user to perform an action, e.g. if your username and password are valid then the application gets temporary credentials to make a database request for that account's information. The separation of these two roles means we can use them together or maybe swap one out with an existing solution. Maybe your company already has an identity provider but just needs temporary credentials to get into a database that runs in AWS, well you'd only need an Identity Pool and not a User Pool. If you only want to rely on social identity federation using Google, Facebook, Twitter, etc. you would also only need to make an Identity Pool.
 
-Of course there's way more to it than that because authentication and authorization is a complex topic. If you're not familiar with how OAuth 2.0 works, you can read my [OAuth Primer for AWS Cognito](http://localhost:4321/blog/an-oauth-20-overview-for-understanding-aws-cognito) blog. Getting familiar with OAuth principles will make Cognito easier to understand since it is an OAuth based service and the separation of roles we've mentioned will also begin to make even more sense.
+Of course, there's way more to it than that because authentication and authorization is a complex topic that has changed a lot over the years. If you're not familiar with how OAuth 2.0 works, you can read my [OAuth Primer for AWS Cognito](https://ryanf.dev/blog/aws-cognito-user-pools-identity-pools-and-app-clients) blog. Getting familiar with OAuth principles will make Cognito easier to understand since it is an OAuth based service and the separation of roles we've mentioned will also begin to make even more sense.
 
 
 ## User Pools
@@ -48,7 +56,7 @@ There are many ways to implement Cognito in your project ranging from official A
 
 AWS Amplify is a giant ecosystem with a bunch of tools but it's worth noting you can avoid almost all of that and just import Amplify Auth into your app. It's understandable why sometimes people don't want to use it at first, but Amplify lets you use existing resources and if all you want to use is Auth, you can avoid everything else about Amplify. You can see more about using Amplify with existing resources in the  <a href="https://docs.amplify.aws/javascript/build-a-backend/auth/enable-sign-up/" target="_blank">AWS Docs</a>
 
-I have some Terraform modules and React application available <a href="https://ryanf.dev/projects/cogneato-user-authentication-with-aws-cognito">on Cogneato project page</a>. Terraform modules build out everything for AWS and React is using Amplify for client side authentication with the Cognito User Pool id and App Client id. After a user authenticates, the app receives access tokens then makes a call to API Gateway with those tokens. API Gateway uses a Cognito Authorizer to get claims and Cognito user information out of the tokens and passes them to a Lambda function. The Lambda function looks at the JWT claims, finds the user ID created by Cognito, and that ID has an entry as a primary key in the database for its user profile information. Access to the database is restricted by IAM policies only allowing the Lambda function to retrieve items. The Lambda function can only be invoked by the API Gateway method with the Cognito Authorizer. The API Gateway method can only be accessed if there's an access token present in the headers or it returns an error.
+I have some Terraform modules and React application available on my <a href="https://ryanf.dev/projects/cogneato-user-authentication-with-aws-cognito">Cogneato project page</a> for experimenting with different Cognito and Amplify settings. The Terraform modules build out everything for AWS and React is using Amplify for client side authentication. It shows user registration, user sign-in with e-mail and password, receiving access tokens that are stored in cookies, then React making a fetch request to API Gateway with those access tokens. The API Gateway resource is configured with a Cognito Authorizer. 
 
 #### If you want to avoid importing the AWS Amplify library: 
 
