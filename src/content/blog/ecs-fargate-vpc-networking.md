@@ -13,7 +13,7 @@ description: "A look at using NAT Gateway or VPC Endpoints for Fargate tasks in 
 - [Application Loadbalancer](#application-loadbalancer)
 ## AWS Fargate Networking
 
-AWS Fargate is a "serverless compute engine" for ECS or EKS and as the name suggests it is great at reducing overhead for server administration, but the networking is still your responsibility.  When a Fargate task is made, it is injected into a VPC and by default given an Elastic Network Interface(ENI) and a private IP address similar to a regular EC2 Instance. VPCs are isolated private networks by default so the Fargate task isn't going to have internet access until some network changes are made.
+AWS Fargate is great at reducing overhead for server administration, but the networking is still your responsibility.  When a Fargate task is created, it is injected into a VPC and given an Elastic Network Interface(ENI) with a private IP address, similar to a regular EC2 Instance. VPCs are isolated private networks by default so the Fargate task isn't going to have internet access until some network changes are made.
 
 Fargate gives you control of where your tasks are launched, meaning you can choose which VPC and any public or private subnet in that VPC. If you launch in a public subnet, you can optionally assign a public IP to the Fargate task. More on that later, but sometimes this is a bad idea. There are ways to stay in a private subnet and get indirect internet access, but that means more resources and expense. All solutions have a trade-off so it's up to you to find the best fit.
 
@@ -40,6 +40,7 @@ There are two types of VPC Endpoints and you'll probably need a combination of b
 #### [Interface Endpoint Pricing](https://aws.amazon.com/privatelink/pricing/)
 
 #### [NAT Gateway Pricing](https://aws.amazon.com/vpc/pricing/)
+
 
 As you can see, Interface Endpoints and NAT Gateway both charge per hour and per GB of data processed. NAT has more expensive data processing but if you have to make a lot of Interface Endpoints, you could possibly negate the savings. If you inspect your network traffic and notice you have a lot of data going to/from S3, then opt for an S3 Gateway Endpoint since they're free. S3 also has an Interface Endpoint available, so make sure to pick S3 Gateway Endpoint.
 

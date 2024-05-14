@@ -16,11 +16,11 @@ description: "AWS Lambda Python deployments can get a little tricky sometimes if
 
 ## Zipped Lambda Deployments
 
-This is the original and still great way to do Lambda deployments. It's a straight forward process where you zip the function code plus any of its dependencies into a compressed file and upload the zip directly to Lambda or put it in an S3 bucket.
+This is the original and still great way to do Lambda deployments. It's a straight forward process where you zip the code plus any of its dependencies, then upload the zip directly to Lambda or put it in an S3 bucket.
 
-Zipped deployments have a file size limitation of 50MB for the compressed zip file and 250MB uncompressed. This is *usually* okay since Lambdas are intended to be focused, short running functions with a maximum execution time of 15 minutes. 
+Zipped deployments have a file size limitation of 50MB for the compressed zip file and 250MB uncompressed. This is *usually* okay since Lambdas are intended to short running functions with a maximum execution time of 15 minutes. 
 
-### For many use cases you can do a zipped deployment with dependencies like this
+You can do a zipped deployment like this:
 
 #### Create a Python virtual environment and activate it
 
@@ -35,7 +35,6 @@ source ./venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-`pip install -r requirements.txt`
 
 #### Zip the *site-packages* folder that was created in the virtual environment folder
 
@@ -43,7 +42,7 @@ pip install -r requirements.txt
 zip lambda.zip -r ./venv/lib/python3.10/site-packages/
 ```
 
-#### Add the lambda function python file 
+#### Add the lambda function python file to the zip
 
 ```bash
 zip lambda.zip lambda_function.py
@@ -51,7 +50,11 @@ zip lambda.zip lambda_function.py
 
 #### Upload the zip to Lambda or S3 Bucket
 
-This can work well until you install libraries like Pandas that are using extensions made in C or C++ which are compiled languages. That means Pandas isn't a pure Python library and a package manager like pip that installs Pandas will also need to compile the C code that Pandas uses.  The issue is the development environment may be a different operating system or architecture than the Lambda's execution environment in AWS. Your Lambda functions will likely be running on *Amazon Linux 2* or the newer *Amazon Linux 2023*. 
+And that's it for zipped deployments. 
+
+**Issues with zipped deployments**:
+
+Let's say you want to use a library like Pandas so you do the usual routine: `pip install pandas` and import it into your Python file, deploy to Lambda and...boo like usual Not all Python libraries are written in pure Python. That sounds weird but some libraries can be made in a compiled language like C. Python itself is not a compiled language but even so, you may have a Python library that needs to be compiled and that's where the problem begins. The issue is the development environment you're coding in may be a different operating system or architecture than the Lambda's execution environment. Your Lambda functions will be running on *Amazon Linux 2* or the newer *Amazon Linux 2023*. When you run into this problem you will see an error message something like this:
 
 ```bash
 {
@@ -74,15 +77,13 @@ pip install \
     pandas
 ```
 
-At the end of the article I'll show a few other ways to install libraries that shouldn't be used in production but still an interesting look around the Lambda execution environment using Python's subprocess and sys modules. 
-
 You can find more information in the [AWS docs](https://docs.aws.amazon.com/lambda/latest/dg/python-package.html) where they provide more examples and best practices.
 
 ## Lambda Layers
 
-Lambda layers are also zip files but they do not contain the function's code. Layers are for dependencies, custom runtimes and configuration files. Let's say you use Pandas in 3 different functions, instead of deploying each function with Pandas in the zip, you could create a layer and share the layer among your functions. This drastically reduces deployment file size for functions and can help eliminate the problem zipped deployments have with compiled code.
+Lambda layers are also zip files but they do not contain the function's code. Layers are for dependencies, custom runtimes and configuration files. Let's say you use Pandas in 3 different functions, instead of deploying each function with Pandas in the zip, you could create a layer and share the layer among your functions. This drastically reduces deployment file size for functions and can help with the compiled code issue at the same time.
 
-When Lambda pulls in a layer, it extracts the libraries to the /opt directory of the function's execution environment so even though layers externalize the packages, you can import and use them just like a regular zipped deployment.
+When Lambda pulls in a layer, it extracts the libraries to the **/opt** directory of the function's execution environment so even though layers externalize the packages, you can import and use them just like a regular zipped deployment.
 
 ### Making a Lambda layer for Python will usually go like this
 
@@ -277,7 +278,7 @@ If you don't get a 200 StatusCode then double check the values you entered above
 
 ## Exploring Lambda Execution Environment
 
-I mentioned earlier this is a look at using *subprocess* and *sys* modules to install dependencies with Python code. It's really slow and not recommended but just some random trivia about Lambda.
+This is a look at installing Python packages *after* a Lambda function starts. You will probably never want to do this, but maybe you'll find it interesting anyway. Keep in mind Lambda costs are determined by a combination of: number of executions, the function's duration and memory usage, and data transfer. In the example below I used `yfinance` and it actually takes so long to install you would have to increase Lambda's default timeout to higher than 3 seconds or you get an error. This would be a terrible idea on a function that's regularly used due to Lambda's duration cost but there might be some rare use cases for doing this. Of course if the next Lambda request reuses that environment it won't have the long cold start, but warm starts are not reliable. I'll add more about the Lambda execution lifecycle at the end.
 
 ```python
 
@@ -297,4 +298,6 @@ def lambda_handler(event, context):
     print(msft)
 ```
 
-The above example works but is actually so slow you have to increase the default Lambda timeout to 30 seconds or it fails.  Instead of doing the subprocess.call() and doing the install from the code, you could also do your *pip install* locally like you normally would into *--target ./package* and use `sys.path.insert(1, './package')` at the top of your Python file. Again, this shouldn't really be done for any other reason to poke around Lambda out of curiosity.
+### Execution Environment Lifecycle
+
+When a *request* is made to run a Lambda function, AWS creates the `execution environment`, in short this means Lambda downloads your code then allocates some memory and a runtime for the function. Creating this environment takes time and is what's known as the `cold start`. Once a Lambda function has executed and is no longer running, AWS keeps this environment alive for a short amount of time and if another request comes in then it can reuse the environment and avoid a cold start. What happens if multiple requests arrive at the same time? Well, Lambda has to scale up by making multiple execution environments and each one will include a cold start. 

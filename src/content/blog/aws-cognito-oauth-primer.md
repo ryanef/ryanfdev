@@ -8,11 +8,11 @@ description: "A high level overview of AWS Cognito as an authentication and auth
 
 ## OAuth 2.0 Introduction
 
-Before diving into Cognito, it's a good idea to go over a few fundamental [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749) principles. This article will mostly focus on authentication with public web and mobile applications but OAuth and Cognito can also be used for machine-to-machine authentication.
+Before diving into Cognito, it's a good idea to go over a few fundamental <a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank">OAuth principles</a>. I also have my <a href="https://ryanf.dev/projects/cogneato-user-authentication-with-aws-cognito">Terraform and React projects using Cognito</a> if you're interested in examples for that. This article mostly focuses on authentication with public web and mobile applications but OAuth and Cognito can also be used for machine-to-machine authentication.
 
 OAuth isn't a service or program you install but think of it is as a standard, or set of rules, for authenticating a user's identity and then authorizing their access to secure resources. If you have a web application where a user needs to enter their password so they can get access to their profile and messages, OAuth 2.0 is a set of security protocols you can follow to make this happen. 
 
-When OAuth is implemented properly, it lets us have a way to access secure resources **without** giving our password to every single one of these resources as proof of identity. Instead we rely on trusted identity providers that authenticate our password and after successful authentication, responds to our device with `access tokens` that our application can now exchange for access to things.  We can then take those tokens and exchange them for access to private resources like a database.  First, let's take a look at the roles defined by the OAuth spec and how they relate to Cognito.
+When OAuth is implemented properly, it lets us have a way to access secure resources **without** giving our password to every single one of these resources as proof of identity. Instead we rely on trusted identity providers that authenticate our password and after successful authentication, responds to our device with `access tokens`.  Our application can then take those tokens and exchange them for access to private resources like a database.  First, let's take a look at the roles defined by the OAuth spec and how they relate to Cognito.
 
 ### OAuth 2.0 Roles
 
@@ -35,7 +35,7 @@ This is a term that describes how we are going to grant access tokens to an appl
 
 `client credentials grant's` name can be confusing at first glance, but it is for machine-to-machine access and you *cannot* enable this in a User Pool app client where `authorization` or` implicit grants` are enabled. We won't talk about `client_credentials` much in this article but it's probably the simplest form of OAuth 2.0 implementation. Generally speaking if you want to grant access to a machine, and not a specific user, client_credentials grants might be what you want.
 
-Authorization and Implicit grants start by making a request to the [Authorization endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html)  `/oauth2/authorize`
+Authorization and Implicit grants start by making a request to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html" target="_blank">Authorization endpoint</a>  `/oauth2/authorize`
 
 ### Authorization Code Grant
 
@@ -54,13 +54,13 @@ HTTP/1.1 302 Found
 Location: https://`www.yourdomain.com`?code=a1b2c3d4-5678-90ab-cdef-EXAMPLE33311&state=`abcdefg`
 ```
 
-Now your app takes this code and sends one more request, but this time  to the [Token Endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html)  `/oauth2/token` and if the code is valid the endpoint issues the access tokens, id tokens, refresh tokens. This code is temporary 
+Now your app takes this code and sends one more request, but this time  to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html" target="_blank">Token Endpoint</a>  `/oauth2/token` and if the code is valid the endpoint issues the access tokens, id tokens, refresh tokens. This code is temporary 
 ### PKCE
 
-[Proof Key for Code Exchange(PKCE)](https://www.rfc-editor.org/rfc/rfc7636)is an extension for Authorization Code grants designed to prevent CSRF and authorization code injection attacks. They are currently considered [best practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics) for SPA and mobile apps. If you want to use PKCE with the Authorization Code grant, [AWS Docs](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html#using-pkce-in-authorization-code.title) detail how your application can dynamically generate a unique string for the code challenge. 
+<a href="https://www.rfc-editor.org/rfc/rfc7636" target="_blank">Proof Key for Code Exchange(PKCE)</a> is an extension for Authorization Code grants designed to prevent CSRF and authorization code injection attacks. They are currently considered [best practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics) for SPA and mobile apps. If you want to use PKCE with the Authorization Code grant, [AWS Docs](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html#using-pkce-in-authorization-code.title) detail how your application can dynamically generate a unique string for the code challenge. 
 ### Implicit Grant
 
-Implicit grants will also give you the access and id tokens but  not the refresh tokens.  It's no longer considered best practice but years ago this was the recommended pattern for SPA and mobile apps. Implicit grants don't have to make that additional request to the `Token Endpoint` like Authorization Code grants. Implicit grants are considered [legacy](https://docs.aws.amazon.com/cognito/latest/developerguide/federation-endpoints-oauth-grants.html) grants now. Instead of having `response_type=code`, your URL parameters would have `response_type=token`
+Implicit grants will also give you the access and id tokens but  not the refresh tokens.  It's no longer considered best practice but years ago this was the recommended pattern for SPA and mobile apps. Implicit grants don't have to make that additional request to the `Token Endpoint` like Authorization Code grants. Implicit grants are considered <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/federation-endpoints-oauth-grants.html" target="_blank">legacy</a> grants now. Instead of having `response_type=code`, your URL parameters would have `response_type=token`
 
 ## Single Page Applications
 

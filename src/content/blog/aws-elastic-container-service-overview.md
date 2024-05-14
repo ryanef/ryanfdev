@@ -30,7 +30,7 @@ Even though Container Definitions are nested inside a Task Definition, they are 
 
 ### Example Task Definition with 2 nested Container Definitions
 
-This is just a sample Task Definition to make a point, see [AWS Docs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definitions) for full examples.
+This is just a sample Task Definition to make a point, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definitions" target="_blank">AWS Docs</a> for full examples.
 
 ```bash
 {  # TASK DEFINITION
@@ -76,4 +76,4 @@ Going back to the example above with two containers in one task, `frontend-react
 
 Maybe you don't want your containers to be in the same task. If `frontend-react` and `backend-python` are in the same task, you could run into problems independently scaling and maintaining them. It could be a good idea to put them in entirely different services but how would they talk then? `Service Discovery` and `Service Connect` are two options that use `AWS CloudMap` in different ways.
 
-`Service Discovery` relies on resolving DNS names through the VPC and `Service Connect` is making API calls directly to CloudMap and looking for an IP address of a healthy instance. Service Connect is the newer of the two and is actually creating and managing a "sidecar" proxy that promises to be faster during failover than Service Discovery. You can read more about the differences in this [AWS Blog](https://aws.amazon.com/blogs/aws/new-amazon-ecs-service-connect-enabling-easy-communication-between-microservices/) from November 2022.
+`Service Discovery` relies on resolving DNS names through the VPC and `Service Connect` is making API calls directly to CloudMap and looking for an IP address of a healthy instance. Service Connect is the newer of the two and is actually creating and managing a "sidecar" proxy that promises to be faster during failover than Service Discovery. You can read more about the differences in this <a href="https://aws.amazon.com/blogs/aws/new-amazon-ecs-service-connect-enabling-easy-communication-between-microservices/" target="_blank">AWS Blog</a> from November 2022.
