@@ -12,6 +12,7 @@ description: "Deploy AWS infrastructure with Terraform to quickly test and devel
 - [Starting Point](#starting-point)
 - [Create AWS Infrastructure](#terraform---create-aws-infrastructure)
 - [React Application Setup](#react-application-setup)
+- [Deploy React Application to AWS](#deploy-react-app-to-aws)
 
 ## Introduction
 
@@ -24,7 +25,7 @@ AWS Cognito is a complex service loaded with features, so using Terraform to qui
 ## Starting Point
 
 - **Terraform** installed with access to the AWS account that has administrator access for creating resources
-- **[nodejs v18+]**(<a href="https://nodejs.org/en/download">download</a>): Cogneato uses React 18 with React Router 6. `nvm` is a popular node version manager if interested.
+- **nodejs v18+**(<a href="https://nodejs.org/en/download">download</a>): Cogneato uses React 18 with React Router 6. `nvm` is a popular node version manager if interested.
 
 ## Terraform - Create AWS Infrastructure
 
