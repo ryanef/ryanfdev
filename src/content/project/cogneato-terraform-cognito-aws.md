@@ -13,6 +13,9 @@ description: "Deploy AWS infrastructure with Terraform to quickly test and devel
 - [Create AWS Infrastructure](#terraform---create-aws-infrastructure)
 - [React Application Setup](#react-application-setup)
 - [Deploy React Application to AWS](#deploy-react-app-to-aws)
+- [UnexpectedSignInInterruptionException](#unexpectedsignininterruptionexception)
+
+
 
 ## Introduction
 
@@ -67,11 +70,11 @@ From the root of the Cogneato project folder there is an `infra` folder and `rea
 4. Open the `localhost` link it shows 
 
 
-#### IMPORTANT
+#### UnexpectedSignInInterruptionException
 
-Some browsers will automatically change http://localhost:5173 into http://127.0.0.1:5173. Normally it doesn't matter at all, but in `/react/auth/config.ts` it is configured to use `CookieStorage` by default with **cognitoUserPooolsTokenProvider** and it wants an exact domain match.
+I ran into this problem in development but not production. The project is using cookies to store the JWT tokens, not localStorage. Registering a user worked, logging in/authenticating caused the error. My issue was a domain mismatch in the cookie configuration. In production, the domain name was always an exact match for the cookies so the error didn't happen.  In development, it would throw an error on the difference between `http://localhost` or `http://127.0.0.1`. Make sure what you see in your browser's URL bar matches what is set in React's `.env` file.  In `/react/auth/config.ts` it is configured to use `CookieStorage` with **cognitoUserPooolsTokenProvider** and it wants an exact domain match.
 
-Make sure you see **http://localhost:5173** in your browser's URL bar or you will get this error:  `UnexpectedSignInInterruptionException`
+There's more discussion about this error <a href="https://github.com/aws-amplify/amplify-js/issues/13182" target="_blank">on the AWS Amplify Github</a>.
 
 ## Deploy React App to AWS
 
