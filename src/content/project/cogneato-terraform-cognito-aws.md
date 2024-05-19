@@ -1,9 +1,9 @@
 ---
-title: "Cogneato: User Authentication with AWS Cognito"
+title: "Cogneato: User Authentication with React, AWS Cognito, API Gateway, Lambda"
 pubDate: "February 28 2024"
 heroImage: "/blog-images/aws-cognito.png"
-tags: ["AWS", "Cognito", "Terraform", "React"]
-description: "Deploy AWS infrastructure with Terraform to quickly test and develop AWS Cognito."
+tags: ["AWS", "Cognito", "Terraform", "API Gateway", "DynamoDB", "React"]
+description: "Create a serverless architecture for a React application that uses AWS Cognito, API Gateway, and Lambda for user registration and authentication. The application also takes a look at protected routes with React Router and getting retrieving user profile information from DynamoDB."
 
 ---
 ## Table of Contents
@@ -61,6 +61,8 @@ There's a **Bash** script in the `infra` directory named `envvar.sh` that will c
 3. Verify that `react/.env` and `react/.env.production` have been updated
 
 ## React Application Setup
+
+<img src="/blog-images/cogneato-ss.png">
 
 From the root of the Cogneato project folder there is an `infra` folder and `react` folder. If you've followed the above environment variable instructions, most of the configuration for a default deployment should be done. We just have to setup React and test it locally.
 

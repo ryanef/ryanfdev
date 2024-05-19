@@ -3,7 +3,7 @@ title: "AWS Lambda Python Deployments: Zipped, Layers, Docker Containers"
 pubDate: "January 27 2024"
 heroImage: "/blog-images/aws-lambda-python.png"
 tags: ["aws", "lambda", "python", "terraform"]
-description: "AWS Lambda Python deployments can get a little tricky sometimes if you're using dependencies, but one of these options should cover just about any use case."
+description: "Zipped deployments are still great but not for every use case so this is a look at layers and Lambda container images. Also a look at improvements to container images since their 2021 launch."
 ---
 
 

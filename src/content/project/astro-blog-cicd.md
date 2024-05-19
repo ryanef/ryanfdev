@@ -3,7 +3,7 @@ title: "AutoBlog: A CI/CD pipeline with AstroJS, Terraform, GitHub Actions"
 pubDate: "February 28 2024"
 heroImage: "/blog-images/cloudfront-blog.png"
 tags: ["AWS", "CloudFront", "Terraform", "AstroJS", "Github Actions"]
-description: "Deploy AWS infrastructure with Terraform and GitHub Actions"
+description: "Create AWS infrastructure with Terraform then push an AstroJS web application to GitHub. After a successful build of Astro, GitHub Actions deploys the app to AWS."
 ---
 ## Table of Contents
 

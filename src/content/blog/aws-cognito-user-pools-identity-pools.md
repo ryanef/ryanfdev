@@ -3,7 +3,7 @@ title: "AWS Cognito: User Pools, Identity Pools and App Clients"
 pubDate: "February 15 2024"
 heroImage: "https://ryanf.dev/blog-images/aws-cognito.jpg"
 tags: ["Terraform", "AWS", "Cognito"]
-description: "A high level overview of AWS Cognito as an authentication and authorization service. AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization."
+description: "AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization. User Pools and Identity Pools are the two main components of Cognito, but play very different roles in the authentication and authroization process."
 ---
 
 ## On This Page:

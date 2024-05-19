@@ -3,7 +3,7 @@ title: "An OAuth 2.0 Overview for Understanding AWS Cognito"
 pubDate: "February 15 2024"
 heroImage: "/blog-images/oauth.png"
 tags: ["OAuth", "AWS", "Cognito"]
-description: "A high level overview of AWS Cognito as an authentication and authorization service. AWS Cognito is an identity management platform for web and mobile applications for registering users, authentication and authorization."
+description: "OAuth is the standard many modern applications go by for granting user access to secure resources. AWS Cognito adheres to OAuth standards so understanding it helps immensely with putting together the pieces of Cognito."
 ---
 
 ## OAuth 2.0 Introduction
