@@ -14,13 +14,22 @@ const last_projects = projects.slice(0, 5);
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
     <div class="text-xl py-1">Welcome!  👋</div>
-    <div class="text-5xl font-bold">I'm Ryan</div>
-    <div class="text-3xl py-3 font-bold"></div>
+    <div class="text-xl font-bold">I'm Ryan</div>
+    <div class="text-sm py-3 font-bold">AWS Certified Associate - Solutions Architect, SysOps Administrator, Developer</div>
+
     <div class="py-2">
       <text class="text-lg">
-        I focus on infrastructure automation in the cloud, mostly with Terraform. Whether you need serverless architecture for your web applications or you need highly available, fault tolerant architecture for your Kubernetes cluster, I probably have something on my <a href="https://ryanf.dev/projects">projects page</a> related to it. I enjoy writing so most projects have associated blogs as well.
+        <p>
+          I have a software and web development background but currently focus on automating cloud infrastructure. I have many types of AWS architecture patterns available as Terraform modules on the <a href="/projects" class="text-lg text-violet-500">projects page</a>. 
+          <p class="mt-2">For anyone interested in AWS Fargate, Kubernetes clusters or any other use case that needs high availability VPC networking, some of those modules are available on <a href="https://registry.terraform.io/modules/ryanef/vpc/aws/latest" class="text-lg text-violet-500">Terraform Registry.</a> </p>
+        </p>
+        <p class="mt-2">
+          Some projects are web applications(React frontend, Python backend) with Terraform modules packaged together. The AWS Fargate project is  for testing and optimizing deployments that use multiple services and need network communication.  The others are related to serverless deployments with CloudFront, Lambda, S3, API Gateway, and authentication with AWS Cognito. These can be used to optimize your builds for speed and cost or be helpful examples to navigate your way through the murkier parts of AWS documentation.
+        </p>
       </text>
+
     </div>
+
     <div class="mt-8">
       <a class="btn" href="https://twitter.com/ryanf_dev" target="_blank"> Let's connect!</a>
       <a href="https://github.com/ryanef" target="_blank" class="btn btn-outline ml-5">

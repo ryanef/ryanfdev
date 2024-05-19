@@ -3,7 +3,7 @@ title: "AWS Fargate Networking and Deployment Optimization with Terraform"
 pubDate: "March 29 2024"
 heroImage: "/blog-images/ecsterraform.jpg"
 tags: ["Fargate", "Networking", "Docker", "Terraform", "ECS"]
-description: "Try different networking options and try new settings to optimize Fargate container deployments."
+description: "Create a VPC, split the network into public and private subnets and create the IAM Roles and Security Groups needed to begin taking a look at the networking options available for Fargate. Also take a look at different optimization, logging and monitoring settings."
 ---
 ## AWS Fargate Terraform Module
 

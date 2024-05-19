@@ -3,7 +3,7 @@ title: "AWS Fargate: Networking Options for Tasks in Private Subnets"
 pubDate: "March 30 2024"
 heroImage: "/blog-images/fargatenetworking.png"
 tags: ["Fargate", "Networking", "Docker", "ECS"]
-description: "A look at using NAT Gateway or VPC Endpoints for Fargate tasks in private subnets."
+description: "When your applications are running in containers on Fargate, there are a few options for getting internet access to them. If they can't be placed in public subnets, NAT Gateway or VPC Endpoints are common solutions for Fargate tasks in private subnets."
 ---
 
 ## On This Page
