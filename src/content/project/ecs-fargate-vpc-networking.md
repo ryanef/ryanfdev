@@ -10,15 +10,10 @@ description: "Create a VPC, split the network into public and private subnets an
 ## On This Page
 
 - [Introduction](#introduction)
-
 - [Setup Demo App](#test-demo-locally)
-
 - [Quick Start Deploy with Terraform](#clone-the-terraform-project)
-
 - [Logging and Monitoring](#monitoring)
-
 - [Change Network Settings](#change-networking-details)
-
 - [Optimization Settings](#optimization-settings)
 
 ## Introduction
