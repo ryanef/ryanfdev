@@ -9,7 +9,11 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ryanf.dev',
-  integrations: [mdx(), sitemap(), tailwind(),		sitemap(),
+  integrations: [mdx(), sitemap({
+	filter: (page) => 
+		page !== 'https://ryanf.dev/projects/tag' &&
+		page !== 'https://ryanf.dev/blog/tag'
+  }), tailwind(),		sitemap(),
 		partytown({
 			config: {
 			  forward: ["dataLayer.push"],
