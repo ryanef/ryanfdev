@@ -18,15 +18,15 @@ description: "Create a VPC, split the network into public and private subnets an
 
 ## Introduction
 
-This Fargate module allows you to experiment with different networking options like VPC Endpoints and NAT Gateway for Fargate tasks running in private or public subnets.  Also, there's some flexibility in settings for the Application Loadbalancer, Target Groups, Listeners, Health Checks, etc.
+Quickly launch your own containers in AWS Fargate running in one or multiple services. These modules provide a custom VPC network where developers can test and optimize their containerized applications in a convenient way. Experiment with different networking options like VPC Endpoints and NAT Gateway for Fargate tasks running in private or public subnets.  Documentation and examples provided for changing defaults in Application Loadbalancer, Target Groups, Listeners, Health Checks, etc.
 
-This isn't intended for production use but for optimizing and testing. Finding the optimal settings can really speed up your container deployments. AutoScale will be in an upcoming version.
+This isn't intended for production use but for optimizing and testing. AutoScale will be in an upcoming version.
 
-You can add your own images and try deployments with a NAT Gateway or using VPC Endpoints. Easily modify container names and ports, alter health check settings, Target Group deregistration delay, etc. The VPC and networking is created automatically with no configuration required on your end but also customizable.
+Add your own images and try deployments with a NAT Gateway or VPC Endpoints. Easily modify container names and ports, alter health check settings, Target Group deregistration delay, etc. The VPC network is created automatically with no configuration required but defaults can be customized.
 
-For a deeper dive into these networking modes read <a href="https://ryanf.dev/blog/aws-fargate-networking-options-for-tasks-in-private-subnets" target="_blank">this blog</a> I posted that covers some of the differences.
+I cover some of these networking modes in more detail in <a href="https://ryanf.dev/blog/aws-fargate-networking-options-for-tasks-in-private-subnets" target="_blank">this blog</a>.
 
-My <a href="https://registry.terraform.io/modules/ryanef/vpc/aws/latest" target="_blank">VPC</a> and <a href="https://registry.terraform.io/modules/ryanef/loadbalancer/aws/latest" target="_blank">LoadBalancer</a> modules are required for the networking. They are imported from Terraform Registry in `network.tf` in the root of this module.
+My <a href="https://registry.terraform.io/modules/ryanef/vpc/aws/latest" target="_blank">VPC</a> and <a href="https://registry.terraform.io/modules/ryanef/loadbalancer/aws/latest" target="_blank">LoadBalancer</a> modules are required for the networking. They are imported from Terraform Registry in `network.tf` in the root of this module. The VPC module can be used for other things and not dependent on this module.
 
 For tasks you want to keep in private subnets, you can use either VPC Endpoints or NAT Gateway. They can be enabled in `variables.tf`
 
@@ -34,7 +34,7 @@ To demonstrate this I've put together 2 images that can be used in Fargate Task 
 
 ## Setup Demo App
 
-You can use your own images these are just samples for demonstration.
+You can use your images these are just samples for demonstration.
 
 ### React and NGINX Image - <a href="https://github.com/ryanef/frontend-ecs-project" target="_blank">(link)</a>
 
