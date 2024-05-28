@@ -101,28 +101,23 @@ source ./venv/bin/activate
 pip install -r requirements.txt
 ```
 
-#### Deactivate the virtual environment
-
-```bash
-deactivate
-```
 
 #### Make a new directory so files can be copied into it
 
 ```bash
-mkdir -p python/lib/python3.10/site-packages
+mkdir -p python
 ```
 
 #### Copy the venv's installed dependencies into the new directory
 
 ```bash
-cp -r venv/lib/python3.10/site-packages/* python/lib/python3.10/site-packages
+cp -r venv/lib/ python/
 ```
 
 #### Zip and upload to Lambda or S3
 
 ```bash
-zip lambda_layer.zip ./python/lib/python3.10/site-packages
+zip -r lambda_layer.zip ./python
 ```
 
 ## Lambda Docker Container Images
