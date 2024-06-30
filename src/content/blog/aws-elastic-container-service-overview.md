@@ -14,7 +14,7 @@ Elastic Container Service uses the concept of clusters and they run in two modes
 
 There's a *cluster manager* -- a backend service responsible for keeping track of your container's `state`. A company may have hundreds or thousands of containers running on any given day, so keeping track of their state(memory, cpu, networking info, storage volumes, etc...) is critical. ECS uses a key-value store to track information about your containers with the help of an `agent` - a lightweight program written in Go - that is automatically installed on every EC2 instance. As you can imagine, state can conflict at times and ECS deals with this by using optimistic concurrency.
 
-**EC2 Mode** will provision regular EC2 instances in a VPC of your choice. These instances are just like any other EC2 Instance, you will be expected to manage them and pay for the instance's running time. EC2 Mode can be a great compromise if you want to keep control over the container's hosts but also pass off some of the container management responsibility to ECS. It's important to remember you'll still be paying for the EC2 hosts even if your containers aren't running.
+**EC2 Mode** will provision regular EC2 instances in a VPC of your choice. These instances are just like any other EC2 Instance, you will be expected to manage them and pay for the instance's running time. EC2 Mode can be a great compromise if you want to keep control over the container's hosts but also pass off some of the container management responsibility to ECS. Remember you'll still be paying for the EC2 hosts even if your containers aren't running.
 
 **Fargate mode** still operates in a VPC and much of the surrounding technology is the same but there's less administrator overhead since you won't be managing the EC2 instances yourself. Fargate tasks are injected into the VPC you choose and given an Elastic Network Interface(ENI) which means it can now get an IP address plus the ability to use security groups. Fargate is running on a shared infrastructure so you only pay for the resources used when the containers run.
 
@@ -22,7 +22,7 @@ There's a *cluster manager* -- a backend service responsible for keeping track o
 
 Tasks are an instantiation of a Task Definition in the same way a house is an instantiation of a blueprint. A Task Definition lets you define the launch type *(EC2, Fargate or External)*, CPU, Memory, Storage, Container Definitions, Security Groups, Network Mode and much more. Some things are required and some are optional depending on the launch type you choose.
 
-A Task Definition can have one or multiple Container Definitions. A Container is a program that runs in isolation from other programs in the same way a house has multiple rooms. Since a task can have multiple containers, it will be important to think about the hard limits set by your CPU and Memory in the Task Definition.
+A Task Definition can have one or multiple Container Definitions. Since a task can have multiple containers, it will be important to think about the hard limits set by your CPU and Memory in the Task Definition.
 
 ## Container Definitions
 
@@ -66,7 +66,7 @@ This is a role the task can assume and the container will be able to access AWS 
 
 ## ECS Service
 
-If you want your ECS deployment to be highly available or scalable that's done by configuring a **service definition**. You can deploy a loadbalancer to sit in front of the service and distribute traffic among the tasks. When using a loadbalancer, it would have a security group that allows incoming traffic from the public and your ECS Task security group would only accept traffic from the loadbalancer. The loadbalancer would be in a public subnet while the tasks stay in a private subnet.
+If you want your ECS deployment to be highly available or scalable that's done by configuring your **service definition**. You can deploy a loadbalancer to sit in front of the service and distribute traffic among the tasks. When using a loadbalancer, it would have a security group that allows incoming traffic from the public and your ECS Task security group would only accept traffic from the loadbalancer. The loadbalancer would be in a public subnet while the tasks stay in a private subnet.
 
 ## Container Communication and Networking
 
